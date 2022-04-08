@@ -9,7 +9,7 @@ import FavoritScreen from "./screens/FavoritScreen";
 import MapScreen from "./screens/MapScreen";
 
 // Screen names
-const homeName = "Home";
+const homeName = "Dornbirn";
 const favoritName = "Favorit";
 const mapName = "Map";
 
