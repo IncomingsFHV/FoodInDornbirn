@@ -9,7 +9,7 @@ import FavoritScreen from "./screens/FavoritScreen";
 import MapScreen from "./screens/MapScreen";
 
 // Screen names
-const homeName = "Home";
+const homeName = "Dornbirn";
 const favoritName = "Favorit";
 const mapName = "Map";
 
@@ -37,7 +37,7 @@ function MainContainer() {
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "tomato",
+          tabBarActiveTintColor: "#DA948D",
           tabBarInactiveTintColor: "grey",
           tabBarStyle: {
             padding: 5,
