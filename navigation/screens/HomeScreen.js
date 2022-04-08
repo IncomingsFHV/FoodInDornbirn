@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import {
   StyleSheet,
-  TouchableOpacity,
   SafeAreaView,
   StatusBar,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import COLORS from "../../consts/colors";
 import { View, Text } from "react-native-ui-lib";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const HomeScreen = ({ navigation }) => {
   const [offer, setOffer] = useState([
-    { name: "Breakfast", id: "1" },
-    { name: "Lunch", id: "2" },
-    { name: "Dinner", id: "3" },
-    { name: "Pastry", id: "4" },
-    { name: "Coffee", id: "5" },
-    { name: "Drinks", id: "6" },
+    { name: "Breakfast", id: "1", logo: "food-variant" },
+    { name: "Lunch", id: "2", logo: "food" },
+    { name: "Dinner", id: "3", logo: "food-drumstick" },
+    { name: "Pastry", id: "4", logo: "food-croissant" },
+    { name: "Coffee", id: "5", logo: "coffee" },
+    { name: "Drinks", id: "6", logo: "glass-cocktail" },
   ]);
 
   const pressHandler = (id) => {
@@ -29,7 +28,7 @@ const HomeScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <StatusBar translucent backgroundColor={COLORS.tranparent} />
       <ImageBackground
-      imageStyle={{borderRadius: 15}}
+        imageStyle={{ borderRadius: 15 }}
         source={require("../../assets/DorbnirnOnboardingScreen.jpg")}
         style={styles.coverImage}
       >
@@ -41,11 +40,23 @@ const HomeScreen = ({ navigation }) => {
         numColumns={3}
         data={offer}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => pressHandler(item.id)}>
-            <Text style={styles.item}>{item.name}</Text>
-          </TouchableOpacity>
+          <View style={{ padding: 5 }}>
+            <MaterialCommunityIcons.Button
+              style={styles.offerButton}
+              onPress={() => pressHandler(item.id)}
+              size={40}
+              iconStyle={{marginLeft: 10, opacity: 0.6}}
+              borderRadius={15}
+              name={item.logo}
+              backgroundColor="#DA948D"
+            >
+              <Text style={{ color: "white" }}>{item.name}</Text>
+            </MaterialCommunityIcons.Button>
+          </View>
         )}
       />
+      <View style={{justifyContent: "center"}}><Text style={styles.title}>Recently viewed</Text></View>
+      
     </SafeAreaView>
   );
 };
@@ -54,16 +65,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingHorizontal: 5,
-  },
-  item: {
-    marginTop: 24,
-    borderRadius: 15,
-    padding: 30,
-    backgroundColor: "pink",
-    fontSize: 15,
     marginHorizontal: 10,
-    marginTop: 24,
+  },
+  offerButton: {
+    height: 70,
+    width: 100,
+    flexDirection: "column",
+    alignContent: "space-around",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10
   },
   coverImage: {
     height: 220,
@@ -87,9 +98,14 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 15,
-    opacity: .7,
-    fontFamily: 'sans-serif',
+    opacity: 0.7,
+    fontFamily: "sans-serif",
     fontWeight: "bold",
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: "bold",
+    textAlignVertical: "top"
   },
 });
 
