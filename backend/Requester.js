@@ -1,5 +1,7 @@
 // -searchName
 
+
+
 function getResturant(){
     return require('./data/resturante.json')
 }
