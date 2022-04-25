@@ -1,0 +1,109 @@
+{
+  "Location": [
+    {
+      "id": "3",
+      "name": "Frei",
+      "type": "bar",
+      "rating": 4,
+      "categories": [1,2,3,5,6],
+      "description": "WIR SIND FREI-CAFÉ-BAR\nDas Herz der Frei-Café-Bar bildet Nebojsa Stankovic, der vor allem ein Ziel und eine Philosophie vor Augen hatte. Sowohl Gäste als auch Mitarbeiter und Mitarbeiterinnen sollen sich wohl fühlen und Spaß, in einem Ambiente der Zufriedenheit, haben. Dazu steht der Genuss der selbst zubereiteten Cocktails und Erfrischungsgetränke im Vordergrund. Geschmackvoll angerichtete Snacks werden ebenfalls stets mit einem Lächeln serviert. Nicht nur die Qualität liegt ihm sehr am Herz, sondern auch das Wohlfühlambiente.\n\nDie FREI-CAFÉ-BAR steht für Charme und Eleganz. Jeder Mensch soll hier glückliche Momente erleben und den Tag in vollen Zügen genießen.\n\nIm Büro sorgt Maria dafür, dass stets alles rund läuft.\n\nNebojsa, Maria und sein Team wünscht genussvolle, entspannte und glückliche Momente in der Frei-Café-Bar.",
+      "website": "http://www.frei-cafe-bar.at/",
+      "phone number": "+43 676 5119856",
+      "location": "Marktstraße 2, 6850 Dornbirn, Österreich",
+      "coordinates": "47.41343699638626, 9.742188824991073",
+      "OpeningHours": {
+        "Monday": "09:00–00:00",
+        "Tuesday": "09:00–00:00",
+        "Wednesday": "09:00–01:00",
+        "Thursday": "09:00–02:00",
+        "Friday": "09:00–02:00",
+        "Saturday": "09:00–02:00",
+        "Sunday": "14:00–22:00"
+      }
+    },
+    {
+      "id": "11",
+      "name": "7er Bar",
+      "type": "bar",
+      "rating": 5,
+      "categories": [6],
+      "description": "Die 7er Bar eröffnete erstmals im Dezember 1986 und hat seither stets 364 Tage im Jahr geöffnet.\nNeben einem immer vielfältigem DJ Aufgebot fanden in den vergangenen Jahren immer wieder unterschiedlichste Events,\nwie Karaoke, die AirGuitar-Landesmeisterschaft oder auch verschiedene Konzerte statt.",
+      "website": "http://www.7er-bar.at/",
+      "phone number": "+43 650 8422027",
+      "location": "Eisengasse 7, 6850 Dornbirn, Österreich",
+      "coordinates": "47.41510126960604, 9.743384553826337",
+      "OpeningHours": {
+        "Monday": "17:00–01:00",
+        "Tuesday": "17:00–01:00",
+        "Wednesday": "17:00–01:00",
+        "Thursday": "17:00–01:00",
+        "Friday": "17:00–01:00",
+        "Saturday": "17:00–01:00",
+        "Sunday": "17:00–01:00"
+      }
+    },
+    {
+      "id": "12",
+      "name": "Café Bar Klappe 2",
+      "type": "bar",
+      "rating": 5,
+      "categories": [1,2,3,6],
+      "description": "Klappe 2 ist ein kleines, authentisches Pub am Dornbirner Marktplatz. Wir bieten eine große Auswahl an Spirituosen und Cocktails, zeitlose Atmosphäre und Musik jenseits des Mainstreams.\nGelegentlich auch Livemusik!",
+      "website": "https://www.facebook.com/klappe2/",
+      "phone number": "+43 664 9333591",
+      "location": "Marktstraße 2, 6850 Dornbirn, Österreich",
+      "coordinates": "47.41346401420289, 9.742259526837428",
+      "OpeningHours": {
+        "Monday": "17:00–01:30",
+        "Tuesday": "17:00–01:30",
+        "Wednesday": "17:00–01:30",
+        "Thursday": "17:00–01:30",
+        "Friday": "17:00–01:30",
+        "Saturday": "09:30–14:00\n19:30–01:30",
+        "Sunday": "19:30–00:00"
+      }
+    },
+    {
+      "id": "13",
+      "name": "Hugos Bar",
+      "type": "bar",
+      "rating": 4,
+      "categories": [6],
+      "description": "",
+      "website": "http://www.hugosbar.at/",
+      "phone number": "+43 5572 31337",
+      "location": "Marktpl. 12, 6850 Dornbirn, Österreich",
+      "coordinates": "47.4137320736645, 9.742766169167044",
+      "OpeningHours": {
+        "Monday": "closed",
+        "Tuesday": "closed",
+        "Wednesday": "20:00–03:00",
+        "Thursday": "20:00–03:00",
+        "Friday": "20:00–03:00",
+        "Saturday": "20:00–03:00",
+        "Sunday": "closed"
+      }
+    },
+    {
+      "id": "14",
+      "name": "John's American Bar & Sambala Lounge",
+      "type": "bar",
+      "rating": 4,
+      "categories": [3,6],
+      "description": "Mr. John’s\n… ist vielfältig und bietet: eine Amercian Bar, eine Sambala Lounge und eine Sports Bar mit Billard\n1994 eröffnete in der Mitte von Dornbirn (am Marktplatz) der Barbetrieb. Nach mehreren Umbauten hat sich der Name Mr. John’s mit den zwei Bars – American Bar und  Sambala Lounge – zu einem der Hotspots für Jung & Alt in Dornbirn entwickelt.",
+      "website": "http://www.mr-johns.at/",
+      "phone number": "+43 5572 3211313",
+      "location": "Marktpl. 1, 6850 Dornbirn, Österreich",
+      "coordinates": "47.413562095125855, 9.742636576981095",
+      "OpeningHours": {
+        "Monday": "closed",
+        "Tuesday": "closed",
+        "Wednesday": "18:00–02:00",
+        "Thursday": "closed",
+        "Friday": "18:00–02:00",
+        "Saturday": "18:00–02:00",
+        "Sunday": "closed"
+      }
+    }
+  ]
+}
