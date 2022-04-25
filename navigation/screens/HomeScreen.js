@@ -7,7 +7,7 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 import COLORS from "../../consts/colors";
 import images from "../../consts/images";
 import { View, Text } from "react-native-ui-lib";
@@ -203,9 +203,11 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <ScrollView>
       {renderHeader()}
       {renderMainCategories()}
       {renderRestaurantList()}
+      </ScrollView>
     </SafeAreaView>
   );
 };
