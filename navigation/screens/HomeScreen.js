@@ -148,9 +148,6 @@ const HomeScreen = ({ navigation }) => {
           style={{ marginEnd: 10 }}
           //onpress -> navigate to Restaurant screen
         >
-          {/* {
-            item.rating.sort((a, b) => (+a.ratings > +b.ratings ? -1 : 1))
-          } */}
           <View style={{ padding: 0 }}>
             <Image
               source={item.photo}
