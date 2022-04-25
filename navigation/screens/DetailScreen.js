@@ -8,7 +8,7 @@ const DetailScreen = ({ navigation }) => {
         onPress={() => navigation.navigate("Home")}
         style={{ fontSize: 26, fontWeight: "bold" }}
       >
-        Detail Screen
+        Detail Screen Learning Git
       </Text>
     </View>
   );
