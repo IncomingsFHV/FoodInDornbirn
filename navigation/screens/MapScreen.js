@@ -2,6 +2,12 @@ import * as React from "react";
 import { View, Text} from 'react-native-ui-lib';
 import { StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+
+import { GOOGLE_API_KEY } from "@env";
+
+const DELTA_LATITUDE = 0.06;
+const DELTA_LONGITUDE = 0.02;
 
 const markers = [{
     latitude: 47.40735,
@@ -26,67 +32,33 @@ const markers = [{
   }];
 
 
+
+
 const MapScreen = ({ navigation }) => {
-  
-  const getInitialState = () => {
-    return {
-        latitude: 47.41235,
-        longitude: 9.74324,
-        latitudeDelta: 0.06,
-        longitudeDelta: 0.02,
-      };
-  }
 
-  const [region, setRegion] = React.useState(getInitialState())
-
-  const onRegionChange = (region) => {
-    setRegion({region});
-  }
-
-  const componentDidMount = () => {
-    Geolocation.getCurrentPosition(
-        (position) => {
-            console.warn(position.coords.latitude);
-            console.warn(position.coords.longitude);
-            setRegion({
-                region: {
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude,
-                    latitudeDelta: 0.02,
-                    longitudeDelta: 0,
-                }
-            });
-        },
-        (error) => {
-            console.warn(error.code, error.message);
-        },
-        {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
-    )
-}
+  const [mapRegion, setMapRegion] = React.useState({
+    latitude: 47.41235,
+    longitude: 9.74324,
+    latitudeDelta: 0.06,
+    longitudeDelta: 0.02,
+  })
+ 
 
   return (
     <View style={styles.container}>
         {/*Render our MapView*/}
-        <Text onPress={() => navigation.navigate("Dornbirn")}
-            style={{ position: "absolute",
-            top: 0,
-            left: 0,
-        fontSize: 26, fontWeight: 'bold', zIndex: 1 }}>HOME</Text>
         <MapView
             provider={PROVIDER_GOOGLE}
             style={styles.map}
-            showsUserLocation = {true}
-            followsUserLocation = {true}
-            //specify our coordinates.
-            initialRegion={{
-              latitude: 47.41235,
-              longitude: 9.74324,
-              latitudeDelta: 0.06,
-              longitudeDelta: 0.02,
-            }}
-            onRegionChange={region => {
-              setRegion({region})
-            }}
+            followsUserLocation={true}
+            showsUserLocation={true}
+            showsMyLocationButton={true}
+            showsCompass={true}
+            toolbarEnabled={true}
+            zoomEnabled={true}
+            rotateEnabled={true}
+
+            region={mapRegion}
             >
             {markers.map((val, index) => {
               return (<MapView.Marker
@@ -102,6 +74,44 @@ const MapScreen = ({ navigation }) => {
              })}
   
         </MapView>
+        <GooglePlacesAutocomplete
+          placeholder="Search"
+          query={{
+            key: GOOGLE_API_KEY,
+            language: 'en', // language of the results
+          }}
+          onPress={(data, details = null) => {
+            setMapRegion({
+              latitude: details["geometry"]["location"]["lat"],
+              longitude: details["geometry"]["location"]["lng"],
+              latitudeDelta: DELTA_LATITUDE,
+              longitudeDelta: DELTA_LONGITUDE,
+            })}
+          }
+          onFail={(error) => console.error(error)}
+          fetchDetails={true}
+          styles={{
+            textInputContainer: {
+              width:"90%",
+              marginTop: 5,
+              opacity: 0.9,
+            },
+            textInput: {
+              height: 38,
+              width: 100,
+              color: '#5d5d5d',
+              fontSize: 16,
+            },
+            predefinedPlacesDescription: {
+              color: '#1faadb',
+            }
+          }}
+          requestUrl={{
+            url:
+              'https://maps.googleapis.com/maps/api',
+            useOnPlatform: 'web',
+          }} // this in only required for use on the web. See https://git.io/JflFv more for details.
+        />
     </View>
   );
 };
@@ -110,7 +120,6 @@ const MapScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1, //the container will fill the whole screen.
-    backgroundColor: '#fff',
     justifyContent: "center",
     alignItems: "center",
   },
