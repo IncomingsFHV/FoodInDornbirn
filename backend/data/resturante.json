@@ -1,5 +1,4 @@
-{
-  "Location": [
+[
     {
       "id": "5",
       "name": "Bierlokal",
@@ -7,7 +6,7 @@
       "rating": 4,
       "categories": [2,3,6],
       "description": "Das Bierlokal liegt im Zentrum von Dornbirn am Eingang\nzur Fußgängerzone.\n\nHier können Sie auf zwei Etagen genießen.\n\nDas Erdgeschoß lädt zu einem gemütlichen Hock mit\nFreunden und Kollegen ein. Genießen sie eines der feinen\nBierspezialitäten vom Faß oder aus der Flasche. Auch für\nein gepflegtes Achtele haben wir immer eine feine Auswahl.\n\nIm ersten Stock in unserem schönen Restaurant können Sie\nzu Zweit, mit der Familie oder der Firma schöne Stunden\nverbringen. Genießen Sie die saisonale Auswahl unserer\nSpeisen.\n\nDas Gasthaus Bierlokal ist das Lokal für Jederman zu jeder Zeit.\n\nDie Wirtin Christine Bertsch freut sich auf Euch!\n\n",
-      "image": "/backend/images/bierlokal.jpg",
+      "image": "/bierlokal.jpg",
       "website": "http://www.bierlokal.at/",
       "phone number": "+43 5572 538500",
       "location": "Marktstraße 12, 6850 Dornbirn, Österreich",
@@ -29,7 +28,7 @@
       "rating": 4,
       "categories": [2,3,6],
       "description": "Das Rote Haus ist das Wahrzeichen der österreichischen Stadt Dornbirn. Am Dornbirner Marktplatz neben der Stadtpfarrkirche St. Martin stehend, wurde das hölzerne, im Stil eines Rheintalhauses gebaute Gebäude im Jahr 1639 errichtet und zählt heute zu den Sehenswürdigkeiten der Stadt.",
-      "image": "/backend/images/roteshaus.jpg",
+      "image": "/roteshaus.jpg",
       "website": "https://roteshaus.at/restaurant/",
       "phone number": "+43 5572 31555",
       "location": "Marktpl. 13, 6850 Dornbirn, Österreich",
@@ -51,7 +50,7 @@
       "rating": 4,
       "categories": [2,3,6],
       "description": "Hallo Ich bin Gabriels Cucina, mein Inhaber Gabriel Venturiello lebt mit seinem TEAM seit 2004 hier seine italienischen Wurzeln aus.\n\nIch spiele viele Facetten: Mediterrane, saisonale Küche, eine ausgewogene Weinkarte und einen spitzen Espresso, ich bin ein kleines kuscheliges Wohnzimmer, kann mich aber auch in ein Tanzlokal verwandeln und ich bin auch sonst für vieles offen: Wein und Gin Degustationen, Wildmenus...\n\nIch weiß das klingt jetzt schon ein wenig eitel, aber kommt doch vorbei und macht Euch selbst ein Bild.",
-      "image": "/backend/images/gabrielscucina.jpg",
+      "image": "/gabrielscucina.jpg",
       "website": "http://www.gabrielscucina.at/",
       "phone number": "+43 5572 31211",
       "location": "Marktstraße 14, 6850 Dornbirn, Österreich",
@@ -73,7 +72,7 @@
       "rating": 3,
       "categories": [2,3,6],
       "description": "SAN MARCO\nSeit vielen Jahren begrüßt Pizzeria Ristorante San Marco im Herzen von Dornbirn mit italienischen Köstlichkeiten und einem gemütlichen Ambiente. Wir sind stets ein gutes Team und bieten unseren Gästen nur das Beste!",
-      "image": "/backend/images/sanmarco.jpg",
+      "image": "/sanmarco.jpg",
       "website": "http://sanmarco-dornbirn.at/",
       "phone number": "+43 5572 35730",
       "location": "Marktpl. 12, 6850 Dornbirn, Österreich",
@@ -95,7 +94,7 @@
       "rating": 3,
       "categories": [2,3,6],
       "description": "BURGERCRAFT IN DORNBIRN\nIn unserem brandneuen und innovativen Selbstbedienungslokal in der Dornbirner Marktstraße bieten wir dir herzhafte Tacos, würzige Nachos, saftige Chicken Wings und – wie der Name schon sagt – natürlich auch schmackhafte Burger, mit allem was dazu gehört. Unsere hausgemachten Saucen-Spezialitäten sind dabei ein besonderes Highlight.",
-      "image": "/backend/images/burgercraft.jpg",
+      "image": "/burgercraft.jpg",
       "website": "https://www.burgercraft.at/",
       "phone number": "+43 5572 386356",
       "location": "Marktstraße 21, 6850 Dornbirn, Österreich",
@@ -110,6 +109,5 @@
         "Sunday": "11:30–22:00"
       }
     }
-  ]
-}
+]
 
