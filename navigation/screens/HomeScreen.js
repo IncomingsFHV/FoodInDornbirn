@@ -9,9 +9,11 @@ import {
 } from "react-native";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import COLORS from "../../consts/colors";
-import images from "../../consts/images";
 import { View, Text } from "react-native-ui-lib";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Restaurant from "../../backend/data/resturante.json";
+import Bar from "../../backend/data/bar.json";
+import Bakery from "../../backend/data/bakery.json";
 
 const HomeScreen = ({ navigation }) => {
   const offerCategory = [
@@ -23,54 +25,7 @@ const HomeScreen = ({ navigation }) => {
     { name: "Drinks", id: 6, logo: "glass-cocktail" },
   ];
 
-  const restaurantData = [
-    {
-      id: 1,
-      name: "Miller John",
-      type: "restaurant",
-      rating: 3,
-      categories: [6],
-      photo: images.frei,
-      description:
-        "Das Bierlokal liegt im Zentrum von Dornbirn am Eingang\nzur Fußgängerzone.\n\nHier können Sie auf zwei Etagen genießen.\n\nDas Erdgeschoß lädt zu einem gemütlichen Hock mit\nFreunden und Kollegen ein. Genießen sie eines der feinen\nBierspezialitäten vom Faß oder aus der Flasche. Auch für\nein gepflegtes Achtele haben wir immer eine feine Auswahl.\n\nIm ersten Stock in unserem schönen Restaurant können Sie\nzu Zweit, mit der Familie oder der Firma schöne Stunden\nverbringen. Genießen Sie die saisonale Auswahl unserer\nSpeisen.\n\nDas Gasthaus Bierlokal ist das Lokal für Jederman zu jeder Zeit.\n\nDie Wirtin Christine Bertsch freut sich auf Euch!\n\n",
-      website: "http://www.bierlokal.at/",
-      "phone number": "+43 5572 538500",
-      location: "Marktstraße 12, 6850 Dornbirn, Österreich",
-      coordinates: "47.412534384879606, 9.74254468557075",
-      OppeningHours: {
-        Monday: "11:00-00:00",
-        Tuesday: "11:00-00:00",
-        Wednesday: "11:00-00:00",
-        Thursday: "11:00-00:00",
-        Friday: "11:00-00:00",
-        Saturday: "10:00-00:00",
-        Sunday: "Closed",
-      },
-    },
-    {
-      id: 2,
-      name: "Frei",
-      type: "restaurant",
-      rating: 6,
-      categories: [5],
-      photo: images.random,
-      description:
-        "Das Bierlokal liegt im Zentrum von Dornbirn am Eingang\nzur Fußgängerzone.\n\nHier können Sie auf zwei Etagen genießen.\n\nDas Erdgeschoß lädt zu einem gemütlichen Hock mit\nFreunden und Kollegen ein. Genießen sie eines der feinen\nBierspezialitäten vom Faß oder aus der Flasche. Auch für\nein gepflegtes Achtele haben wir immer eine feine Auswahl.\n\nIm ersten Stock in unserem schönen Restaurant können Sie\nzu Zweit, mit der Familie oder der Firma schöne Stunden\nverbringen. Genießen Sie die saisonale Auswahl unserer\nSpeisen.\n\nDas Gasthaus Bierlokal ist das Lokal für Jederman zu jeder Zeit.\n\nDie Wirtin Christine Bertsch freut sich auf Euch!\n\n",
-      website: "http://www.bierlokal.at/",
-      "phone number": "+43 5572 538500",
-      location: "Marktstraße 12, 6850 Dornbirn, Österreich",
-      coordinates: "47.412534384879606, 9.74254468557075",
-      OppeningHours: {
-        Monday: "11:00-00:00",
-        Tuesday: "11:00-00:00",
-        Wednesday: "11:00-00:00",
-        Thursday: "11:00-00:00",
-        Friday: "11:00-00:00",
-        Saturday: "10:00-00:00",
-        Sunday: "Closed",
-      },
-    },
-  ];
+  const restaurantData = [...Restaurant, ...Bar, ...Bakery];
 
   const [categories, setCategories] = useState(offerCategory);
   const [selectedCategory, setSelectCategory] = useState(null);
@@ -150,7 +105,7 @@ const HomeScreen = ({ navigation }) => {
         >
           <View style={{ padding: 0 }}>
             <Image
-              source={item.photo}
+              // source={require('../../backend/images' + item.image)}
               resizeMode="cover"
               style={{
                 width: 250,
@@ -173,8 +128,14 @@ const HomeScreen = ({ navigation }) => {
               ...styles.shadow,
             }}
           >
-            <Text style={{fontSize: 14, fontWeight: "bold"}}>{item.name}</Text> 
-            <MaterialCommunityIcons name= "star"><Text style={{fontSize: 14, fontWeight: "bold"}}> {item.rating}</Text> </MaterialCommunityIcons>
+            <Text style={{ fontSize: 14, fontWeight: "bold" }}>
+              {item.name}
+            </Text>
+            <MaterialCommunityIcons name="star">
+              <Text style={{ fontSize: 14, fontWeight: "bold" }}>
+                {item.rating}
+              </Text>
+            </MaterialCommunityIcons>
           </View>
         </TouchableOpacity>
       );
@@ -183,7 +144,12 @@ const HomeScreen = ({ navigation }) => {
     return (
       <View style={{ paddingLeft: 10 }}>
         <Text
-          style={{ fontSize: 24, fontWeight: "bold", textAlignVertical: "top", paddingBottom: 10}}
+          style={{
+            fontSize: 24,
+            fontWeight: "bold",
+            textAlignVertical: "top",
+            paddingBottom: 10,
+          }}
         >
           Popular
         </Text>
@@ -204,9 +170,9 @@ const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-      {renderHeader()}
-      {renderMainCategories()}
-      {renderRestaurantList()}
+        {renderHeader()}
+        {renderMainCategories()}
+        {renderRestaurantList()}
       </ScrollView>
     </SafeAreaView>
   );
