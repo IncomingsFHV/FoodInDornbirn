@@ -39,7 +39,7 @@ const HomeScreen = ({ navigation }) => {
     // );
     // setRestaurants(restaurantList);
     // setSelectCategory(category);
-    navigation.push('DetailScreen')
+    navigation.navigate('DetailScreen')
   }
 
   const renderHeader = () => {
