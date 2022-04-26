@@ -19,7 +19,8 @@
         "Friday": "07:00-18:30",
         "Saturday": "07:00-16:30",
         "Sunday": "Closed"
-      }
+      },
+      "Tag" : ["vegetarian","take-out"]
     },
     {
       "id": "2",
@@ -41,7 +42,8 @@
         "Friday": "07:30–13:00",
         "Saturday": "07:30–13:00",
         "Sunday": "07:30–13:00"
-      }
+      },
+      "Tag" : ["vegetarian","take-out"]
     },
     {
       "id": "4",
@@ -63,7 +65,8 @@
         "Friday": "07:00–18:00",
         "Saturday": "08:00–18:00",
         "Sunday": "Closed"
-      }
+      },
+      "Tag" : ["vegetarian","take-out"]
     },
     {
       "id": "6",
@@ -85,7 +88,8 @@
         "Friday": "06:30–18:00",
         "Saturday": "06:30–12:00",
         "Sunday": "closed"
-      }
+      },
+      "Tag" : ["vegetarian","take-out"]
     },
     {
       "id": "7",
@@ -107,6 +111,7 @@
         "Friday": "07:00–18:00",
         "Saturday": "07:00–14:00",
         "Sunday": "closed"
-      }
+      },
+      "Tag" : ["vegetarian","take-out"]
     }
   ]

@@ -19,7 +19,8 @@
         "Friday": "11:00-00:00",
         "Saturday": "10:00-00:00",
         "Sunday": "Closed"
-      }
+      },
+      "Tag" : ["vegetarian","take-out","out-door","non-smoker"]
     },
     {
       "id": "8",
@@ -41,7 +42,8 @@
         "Friday": "11:30–14:00\n17:30–00:00",
         "Saturday": "11:30–14:00\n17:30–00:00",
         "Sunday": "11:30–14:00\n17:30–00:00"
-      }
+      },
+      "Tag" : ["vegetarian","take-out","out-door","non-smoker","historical"]
     },
     {
       "id": "9",
@@ -63,7 +65,8 @@
         "Friday": "10:00–14:00\n17:00–23:30",
         "Saturday": "10:00–14:00\n17:00–23:30",
         "Sunday": "Closed"
-      }
+      },
+      "Tag" : ["vegetarian","take-out","out-door","non-smoker","gluten-free"]
     },
     {
       "id": "10",
@@ -85,7 +88,8 @@
         "Friday": "11:30–00:00",
         "Saturday": "11:30–23:30",
         "Sunday": "11:30–00:00"
-      }
+      },
+      "Tag" : ["vegetarian","take-out","out-door","non-smoker"]
     },
     {
       "id": "15",
@@ -107,7 +111,8 @@
         "Friday": "11:30–22:00",
         "Saturday": "11:30–22:00",
         "Sunday": "11:30–22:00"
-      }
+      },
+      "Tag" : ["vegetarian","take-out","out-door","non-smoker"]
     }
 ]
 

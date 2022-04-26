@@ -19,7 +19,8 @@
         "Friday": "09:00–02:00",
         "Saturday": "09:00–02:00",
         "Sunday": "14:00–22:00"
-      }
+      },
+      "Tag" : ["vegetarian","cocktail","non-smoker"]
     },
     {
       "id": "11",
@@ -41,7 +42,8 @@
         "Friday": "17:00–01:00",
         "Saturday": "17:00–01:00",
         "Sunday": "17:00–01:00"
-      }
+      },
+      "Tag" : ["cocktail","non-smoker"]
     },
     {
       "id": "12",
@@ -63,7 +65,8 @@
         "Friday": "17:00–01:30",
         "Saturday": "09:30–14:00\n19:30–01:30",
         "Sunday": "19:30–00:00"
-      }
+      },
+      "Tag" : ["vegetarian","cocktail","non-smoker"]
     },
     {
       "id": "13",
@@ -85,7 +88,8 @@
         "Friday": "20:00–03:00",
         "Saturday": "20:00–03:00",
         "Sunday": "closed"
-      }
+      },
+      "Tag" : ["vegetarian","cocktail","non-smoker"]
     },
     {
       "id": "14",
@@ -107,6 +111,7 @@
         "Friday": "18:00–02:00",
         "Saturday": "18:00–02:00",
         "Sunday": "closed"
-      }
+      },
+      "Tag" : ["cocktail","non-smoker"]
     }
   ]
