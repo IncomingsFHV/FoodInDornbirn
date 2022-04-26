@@ -16,8 +16,7 @@ const RestaurantScreen = ({navigation, route}) => {
     return (
       <View style={{ padding: 10 }}>
         <Image
-          //source={require("../../assets/restaurant-in-valkenswaard.jpg")}
-          source={json.source}
+          //source={require("../../assets/restaurant-in-valkenswaard.jpg
           style={styles.coverImage}>
         </Image>
           <Text style={styles.text}>{item.name}</Text>
