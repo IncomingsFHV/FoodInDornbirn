@@ -1,0 +1,140 @@
+[
+  {
+    "id": "1",
+    "name": "Bäckerei Mangold",
+    "type": "bakery",
+    "rating": 5,
+    "categories": [1,2,3,4,5],
+    "description": "Mit unseren Händen erschaffen wir täglich Neues. Wir formen, füllen und fühlen. Was in unserer Backstube mit viel Liebe, den besten Zutaten und echtem Bäckerhandwerk entsteht, sorgt den ganzen Tag über für Genussmomente und Glücksgefühle – von den Großbroten über Klein- und Spezialgebäck, leckeren Snacks bis zu Kuchen und Torten, die in unseren gemütlichen Cafés mit lieben Menschen gemeinsam genossen werden können. Gönnen Sie sich täglich etwas Gutes. Wir freuen uns auf Ihren Besuch.",
+    "image": "/mangold.jpg",
+    "website": "https://www.bäckerei-mangold.at/",
+    "phone number": "+43 5572 386856",
+    "location": "Marktstraße 10, 6850 Dornbirn, Österreich",
+    "coordinates": "47.412920576069844, 9.742285984507733",
+    "OpeningHours": {
+      "Monday": "07:00-18:30",
+      "Tuesday": "07:00-18:30",
+      "Wednesday": "07:00-18:30",
+      "Thursday": "07:00-18:30",
+      "Friday": "07:00-18:30",
+      "Saturday": "07:00-16:30",
+      "Sunday": "Closed"
+    },
+    "Tag" : ["vegetarian","take-out"]
+  },
+  {
+    "id": "2",
+    "name": "Schertlerbrot GmbH & Co KG",
+    "type": "bakery",
+    "rating": 4,
+    "categories": [1,2,4,5],
+    "description": "Die Zeiten ändern sich, gutes Handwerk nicht.\n\nSchertlerbrot gibt es schon seit drei Generationen und wird seit 1928 hergestellt. Es begann im Oberdorf in Dornbirn, wo Josef Schertler seine erste Bäckerei betrieb. Seit 1936 wird Schertlerbrot in Feldkirch gemacht, wo Hanssepp Schertler mit seinen 2 Schwestern den Betrieb weitergeführt und vergrößert hat. Immer mehr handwerkliche Brotrezepte und auch feine Konditoreiwaren wurden dem Sortiment hinzugefügt.\n\nJetzt, in der 3. Generation, wurde der Betrieb in Feldkirch auf insgesamt sieben Filialen vergrößert und die Backstube 2015 von der Innenstadt nach Tosters in die Illstrasse verlegt, in der auch das Business Motel Feldkirch betrieben wird.\n\nDie Herstellungsmethoden haben sich kaum verändert und trotz neuer technischer Möglichkeiten wird Schertlerbrot mit viel Sorgfalt und großteils noch von Hand hergestellt.",
+    "image": "/schertlerbrot.jpg",
+    "website": "http://www.schertlerbrot.at/",
+    "phone number": "+43 5572 310032",
+    "location": "Marktpl. 1, 6850 Dornbirn, Österreich",
+    "coordinates": "47.413536835740885, 9.742490869167032",
+    "OpeningHours": {
+      "Monday": "07:30–13:00",
+      "Tuesday": "07:30–13:00",
+      "Wednesday": "07:30–13:00",
+      "Thursday": "07:30–13:00",
+      "Friday": "07:30–13:00",
+      "Saturday": "07:30–13:00",
+      "Sunday": "07:30–13:00"
+    },
+    "Tag" : ["vegetarian","take-out"]
+  },
+  {
+    "id": "3",
+    "name": "Frei",
+    "type": "bar",
+    "rating": 4,
+    "categories": [1,2,3,4,5,6],
+    "description": "WIR SIND FREI-CAFÉ-BAR\nDas Herz der Frei-Café-Bar bildet Nebojsa Stankovic, der vor allem ein Ziel und eine Philosophie vor Augen hatte. Sowohl Gäste als auch Mitarbeiter und Mitarbeiterinnen sollen sich wohl fühlen und Spaß, in einem Ambiente der Zufriedenheit, haben. Dazu steht der Genuss der selbst zubereiteten Cocktails und Erfrischungsgetränke im Vordergrund. Geschmackvoll angerichtete Snacks werden ebenfalls stets mit einem Lächeln serviert. Nicht nur die Qualität liegt ihm sehr am Herz, sondern auch das Wohlfühlambiente.\n\nDie FREI-CAFÉ-BAR steht für Charme und Eleganz. Jeder Mensch soll hier glückliche Momente erleben und den Tag in vollen Zügen genießen.\n\nIm Büro sorgt Maria dafür, dass stets alles rund läuft.\n\nNebojsa, Maria und sein Team wünscht genussvolle, entspannte und glückliche Momente in der Frei-Café-Bar.",
+    "image": "/frei-cafe-bar.png",
+    "website": "http://www.frei-cafe-bar.at/",
+    "phone number": "+43 676 5119856",
+    "location": "Marktstraße 2, 6850 Dornbirn, Österreich",
+    "coordinates": "47.41343699638626, 9.742188824991073",
+    "OpeningHours": {
+      "Monday": "09:00–00:00",
+      "Tuesday": "09:00–00:00",
+      "Wednesday": "09:00–01:00",
+      "Thursday": "09:00–02:00",
+      "Friday": "09:00–02:00",
+      "Saturday": "09:00–02:00",
+      "Sunday": "14:00–22:00"
+    },
+    "Tag" : ["vegetarian","cocktail","non-smoker"]
+  },
+  {
+    "id": "4",
+    "name": "Simit Coffee Bakery",
+    "type": "bakery",
+    "rating": 4,
+    "categories": [1,2,3,4,5],
+    "description": "Sie benötigen qualitativ hochwertige Türkische Backwaren.\nWir bieten Top Qualität zu fairen Preisen.\nUnser Team freut sich auf einen Besuch von Ihnen.\nWir stehen für hohe Qualität und erstklassige Backwaren zu top Preisen.\nBei uns wird Service und Zuverlässigkeit groß geschrieben.\nQualität statt Quantität ist für uns von entscheidender Bedeutung.",
+    "image": "/simit-bakery.jpg",
+    "website": "https://simit-bakery.at/",
+    "phone number": "+43 664 1489777",
+    "location": "Bahnhofstraße 28, 6850 Dornbirn, Österreich",
+    "coordinates": "47.41697508359887, 9.73945979800233",
+    "OpeningHours": {
+      "Monday": "07:00–18:00",
+      "Tuesday": "07:00–18:00",
+      "Wednesday": "07:00–18:00",
+      "Thursday": "07:00–18:00",
+      "Friday": "07:00–18:00",
+      "Saturday": "08:00–18:00",
+      "Sunday": "Closed"
+    },
+    "Tag" : ["vegetarian","take-out"]
+  },
+  {
+    "id": "6",
+    "name": "Schwanenbäckerei Fitz",
+    "type": "bakery",
+    "rating": 4,
+    "categories": [1,2,3,4,5],
+    "description": "Wir legen größten Wert auf die handwerkliche Fertigung, sowie auf beste Rohstoffe und Zutaten. Rezepturen und Arbeitsweise sind seit jeher unverändert. Wir „hefeln“ (Vorteig) unser Bauern- und Roggenbrot, wie ich es schon von meinem Vater übernommen habe. Bei der Qualität unserer Produkte gibt es keine Kompromisse, unsere Kunden erhalten nur beste Qualität in Geschmack, Form, Farbe und Frische.",
+    "image": "/schwanenbaeckerei-fitz.jpg",
+    "website": "http://schwanenbaeckerei-fitz.at/",
+    "phone number": "+43 5572 31073",
+    "location": "Riedgasse 9, 6850 Dornbirn, Österreich",
+    "coordinates": "47.415359048832684, 9.741850113343025",
+    "OpeningHours": {
+      "Monday": "06:30–18:00",
+      "Tuesday": "06:30–18:00",
+      "Wednesday": "06:30–18:00",
+      "Thursday": "06:30–18:00",
+      "Friday": "06:30–18:00",
+      "Saturday": "06:30–12:00",
+      "Sunday": "closed"
+    },
+    "Tag" : ["vegetarian","take-out"]
+  },
+  {
+    "id": "7",
+    "name": "Cafe Bäckerei Spiegel",
+    "type": "bakery",
+    "rating": 4,
+    "categories": [1,2,3,4,5],
+    "description": "In der Bäckerei Spiegel erwarten Sie nicht nur frisches und hausgemachtes Brot, Gebäck, Konditoreiwaren und andere Köstlichkeiten: Unser Café bietet Ihnen auch den perfekten Rahmen für ein gemütliches Kaffeekränzchen. Schauen Sie vorbei und lassen Sie sich von unserem freundlichen Team kulinarisch verwöhnen!",
+    "image": "/spiegel.jpg",
+    "website": "http://www.baeckerei-dornbirn.at/",
+    "phone number": "+43 5572 22261",
+    "location": "Marktpl. 4, 6850 Dornbirn, Österreich",
+    "coordinates": "47.41422199102713, 9.741800598002225",
+    "OpeningHours": {
+      "Monday": "07:00–18:00",
+      "Tuesday": "07:00–18:00",
+      "Wednesday": "07:00–18:00",
+      "Thursday": "07:00–18:00",
+      "Friday": "07:00–18:00",
+      "Saturday": "07:00–14:00",
+      "Sunday": "closed"
+    },
+    "Tag" : ["vegetarian","take-out"]
+  }
+]
