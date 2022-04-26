@@ -28,17 +28,15 @@ const HomeScreen = ({ navigation }) => {
   const restaurantData = [...Restaurant, ...Bar, ...Bakery];
 
   const [categories, setCategories] = useState(offerCategory);
-  const [selectedCategory, setSelectCategory] = useState(null);
   const [popular, setPopular] = useState(restaurantData);
   const [restaurants, setRestaurants] = useState(restaurantData);
 
-  const onSelectCategory = ({ category }) => {
+  const onSelectCategory = (item) => {
     //filter restaurant
-    // let restaurantList = restaurantData.filter((a) =>
-    //   a.categories.includes(category.id)
-    // );
-    // setRestaurants(restaurantList);
-    // setSelectCategory(category);
+    let restaurantList = restaurantData.filter((a) =>
+      a.categories.includes(item.id)
+    );
+    setRestaurants(restaurantList);
     navigation.navigate("RestaurantScreen", {
       restaurants,
     });
@@ -62,41 +60,44 @@ const HomeScreen = ({ navigation }) => {
   };
 
   const renderMainCategories = () => {
-    return (
-      <TouchableOpacity>
-        <FlatList
-          numColumns={3}
-          keyExtractor={(item) => item.id}
-          data={categories}
-          contentContainerStyle={{
-            paddingVertical: 10,
-            paddingLeft: 5,
+    const renderItem = ({ item }) => (
+      <TouchableOpacity
+        style={{ padding: 5 }}
+        onPress={() => onSelectCategory(item)}
+      >
+        <MaterialCommunityIcons.Button
+          style={{
+            height: 70,
+            width: 104,
+            flexDirection: "column",
+            alignContent: "space-around",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: 10,
           }}
-          renderItem={({ item }) => (
-            <View style={{ padding: 5 }}>
-              <MaterialCommunityIcons.Button
-                style={{
-                  height: 70,
-                  width: 104,
-                  flexDirection: "column",
-                  alignContent: "space-around",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  margin: 10,
-                }}
-                onPress={() => onSelectCategory(item)}
-                size={40}
-                iconStyle={{ marginLeft: 10, opacity: 0.6 }}
-                borderRadius={15}
-                name={item.logo}
-                backgroundColor="#DA948D"
-              >
-                <Text style={{ color: "white" }}>{item.name}</Text>
-              </MaterialCommunityIcons.Button>
-            </View>
-          )}
-        />
+          onPress={() => onSelectCategory(item)}
+          size={40}
+          iconStyle={{ marginLeft: 10, opacity: 0.6 }}
+          borderRadius={15}
+          name={item.logo}
+          backgroundColor="#DA948D"
+        >
+          <Text style={{ color: "white" }}>{item.name}</Text>
+        </MaterialCommunityIcons.Button>
       </TouchableOpacity>
+    );
+
+    return (
+      <FlatList
+        data={categories}
+        numColumns={3}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        contentContainerStyle={{
+          paddingVertical: 10,
+          paddingLeft: 5,
+        }}
+      />
     );
   };
 
