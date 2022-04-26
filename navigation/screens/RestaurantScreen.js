@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import { SafeAreaView, StyleSheet, View, Text, Image, FlatList, StatusBar} from 'react-native';
 
 const RestaurantScreen = ({navigation, route}) => {
-  const [selectedId, setSelectedId] = useState(null);
-
   const [restaurants, setRestaurants] = React.useState(null)
 
   React.useEffect(() => {
@@ -16,9 +14,8 @@ const RestaurantScreen = ({navigation, route}) => {
     return (
       <View style={{ padding: 10 }}>
         <Image
-          //source={require("../../assets/restaurant-in-valkenswaard.jpg
-          style={styles.coverImage}>
-        </Image>
+          source={require("../../backend/images/bierlokal.jpg")}
+          style={styles.coverImage} />
           <Text style={styles.text}>{item.name}</Text>
           <Text style={styles.text}>{item.adress}</Text>
       </View>
@@ -31,7 +28,6 @@ const RestaurantScreen = ({navigation, route}) => {
         data={restaurants}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        extraData={selectedId}
       />
 
     </SafeAreaView>
