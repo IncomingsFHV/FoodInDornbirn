@@ -1,7 +1,5 @@
-import React, {useState, useLayoutEffect} from 'react';
-import { SafeAreaView, StyleSheet, View, Text, Image,ImageBackground, FlatList, StatusBar} from 'react-native';
-import { useEffect } from 'react/cjs/react.production.min';
-import Data from "../../backend/data/test.json";
+import React, {useState} from 'react';
+import { SafeAreaView, StyleSheet, View, Text, Image, FlatList, StatusBar} from 'react-native';
 
 const RestaurantScreen = ({navigation, route}) => {
   const [selectedId, setSelectedId] = useState(null);
