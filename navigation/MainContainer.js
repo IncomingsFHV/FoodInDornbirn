@@ -17,7 +17,6 @@ const Tab = createBottomTabNavigator();
 
 function MainContainer() {
   return (
-    <NavigationContainer>
       <Tab.Navigator
 
         initialRouteName={homeName}
@@ -54,7 +53,6 @@ function MainContainer() {
         <Tab.Screen name={mapName} component={MapScreen} />
 
       </Tab.Navigator>
-    </NavigationContainer>
   );
 }
 
