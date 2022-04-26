@@ -34,11 +34,11 @@ const HomeScreen = ({ navigation }) => {
 
   const onSelectCategory = ({ category }) => {
     //filter restaurant
-    let restaurantList = restaurantData.filter((a) =>
-      a.categories.includes(category.id)
-    );
-    setRestaurants(restaurantList);
-    setSelectCategory(category);
+    // let restaurantList = restaurantData.filter((a) =>
+    //   a.categories.includes(category.id)
+    // );
+    // setRestaurants(restaurantList);
+    // setSelectCategory(category);
     navigation.navigate("RestaurantScreen", {
       restaurants,
     });
