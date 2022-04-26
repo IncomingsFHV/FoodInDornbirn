@@ -32,47 +32,29 @@ const mineRestaurant = {
   }
 };
 
+const RenderScreen = () => {
+  return (
+    <View>
+      <Image style={styles.imageStyle}
+        //source={mineRestaurant["image"]}
+        source={require('../../backend/images/bierlokal.jpg')}>
+      </Image>
 
-const DetailScreen = ({ navigation }) => {
-  function renderScreen () {
-    return (
       <View>
-        <View style={styles.topBar}>
-          <View
-            onPress={() => navigation.navigate("Dornbirn")}
-            style={styles.backButton}
-            >
-              <MaterialCommunityIcons name="star"></MaterialCommunityIcons>
-          </View>
-  
-          <TouchableOpacity 
-            style={styles.shareButton}>
-            <MaterialCommunityIcons name="star"></MaterialCommunityIcons>
-          </TouchableOpacity>
-        </View>
-  
-        <Image style={styles.imageStyle}
-          //source={mineRestaurant["image"]}
-          source={require('../../backend/images/bierlokal.jpg')}>
-        </Image>
-  
-        <View>
-          <Text style={styles.nameText}>
-            {mineRestaurant["name"]}
-          </Text>
-        
-          <Text style={styles.addressText}>
-            {mineRestaurant["location"]}
-          </Text>
-        </View>
+        <Text style={styles.nameText}>
+          {mineRestaurant["name"]}
+        </Text>
+      
+        <Text style={styles.addressText}>
+          {mineRestaurant["location"]}
+        </Text>
       </View>
-    );
-  }
+    </View>
+  );
+}
 
-  function renderContacts () {
-    
-  }
-
+/*
+const DetailScreen = ({ navigation }) => {
   return(
     <ScrollView>
       {renderScreen()}
@@ -86,8 +68,71 @@ const DetailScreen = ({ navigation }) => {
     </ScrollView>
   );
 };
-  
-  
+  */
+const DetailScreen = ({ navigation }) => {
+  return (
+    <ScrollView>
+      <RenderScreen></RenderScreen>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <MobileContactInfo></MobileContactInfo>
+        <WebsiteContactInfo></WebsiteContactInfo>
+        <MailContactInfo></MailContactInfo>
+      </View>
+    </ScrollView>
+  );
+};
+
+const MobileContactInfo = ({}) => {
+  return (
+    <View style={{ flexDirection: "row"}}>
+      <View style={{ alignItems: 'center', width: "15%", backgroundColor: "green"}}>
+        <Text>aa</Text>
+      </View>
+      <View style={{ width: "60%", backgroundColor: "red"}}>
+        <Text style={{ marginLeft: 20,}}>Mobile</Text>
+        <Text style={{ marginLeft: 20,}}>{mineRestaurant["phone number"]}</Text>
+      </View>
+      <View style={{ width: "25%"}}>
+        <MaterialCommunityIcons.Button>cc</MaterialCommunityIcons.Button >
+      </View>
+    </View>
+  )
+}
+
+const WebsiteContactInfo = ({}) => {
+  return (
+    <View style={{ flexDirection: "row"}}>
+      <View style={{ alignItems: 'center', width: "15%", backgroundColor: "green"}}>
+        <Text>aa</Text>
+      </View>
+      <View style={{ width: "60%", backgroundColor: "red"}}>
+        <Text style={{ marginLeft: 20,}}>Website</Text>
+        <Text style={{ marginLeft: 20,}}>{mineRestaurant["phone number"]}</Text>
+      </View>
+      <View style={{ width: "25%", backgroundColor: "black"}}>
+        <Text>cc</Text>
+      </View>
+    </View>
+  )
+}
+
+const MailContactInfo = ({}) => {
+  return (
+    <View style={{ flexDirection: "row"}}>
+      <View style={{ alignItems: 'center', width: "15%", backgroundColor: "green"}}>
+        <Text>aa</Text>
+      </View>
+      <View style={{ width: "60%", backgroundColor: "red"}}>
+        <Text style={{ marginLeft: 20,}}>Mail</Text>
+        <Text style={{ marginLeft: 20,}}>email@email.com</Text>
+      </View>
+      <View style={{ width: "25%", backgroundColor: "black"}}>
+        <Text>cc</Text>
+      </View>
+    </View>
+  )
+}
+
 
 //create our styling code:
 const styles = StyleSheet.create({
