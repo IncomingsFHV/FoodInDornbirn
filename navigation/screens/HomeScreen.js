@@ -29,18 +29,22 @@ const HomeScreen = ({ navigation }) => {
 
   const [categories, setCategories] = useState(offerCategory);
   const [selectedCategory, setSelectCategory] = useState(null);
+  const [popular, setPopular] = useState(restaurantData);
   const [restaurants, setRestaurants] = useState(restaurantData);
 
-  function onSelectCategory(category) {
-    // //filter restaurant
+  const onSelectCategory = ({ category }) => {
+    //filter restaurant
     // let restaurantList = restaurantData.filter((a) =>
     //   a.categories.includes(category.id)
     // );
     // setRestaurants(restaurantList);
     // setSelectCategory(category);
-  }
+    navigation.navigate("RestaurantScreen", {
+      restaurants,
+    });
+  };
 
-  function renderHeader() {
+  const renderHeader = () => {
     return (
       <View>
         <StatusBar translucent backgroundColor={COLORS.tranparent} />
@@ -55,9 +59,9 @@ const HomeScreen = ({ navigation }) => {
         </ImageBackground>
       </View>
     );
-  }
+  };
 
-  function renderMainCategories() {
+  const renderMainCategories = () => {
     return (
       <TouchableOpacity>
         <FlatList
@@ -94,14 +98,18 @@ const HomeScreen = ({ navigation }) => {
         />
       </TouchableOpacity>
     );
-  }
+  };
 
-  function renderRestaurantList() {
+  const renderRestaurantList = () => {
     const renderItem = ({ item }) => {
       return (
         <TouchableOpacity
           style={{ marginEnd: 10 }}
-          //onpress -> navigate to Restaurant screen
+          onPress={() =>
+            navigation.navigate("DetailScreen", {
+              item,
+            })
+          }
         >
           <View style={{ padding: 0 }}>
             <Image
@@ -154,7 +162,7 @@ const HomeScreen = ({ navigation }) => {
           Popular
         </Text>
         <FlatList
-          data={restaurants.sort((a, b) => (+a.rating > +b.rating ? -1 : 1))}
+          data={popular.sort((a, b) => (+a.rating > +b.rating ? -1 : 1))}
           horizontal
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => `${item.id}`}
@@ -165,7 +173,7 @@ const HomeScreen = ({ navigation }) => {
         />
       </View>
     );
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>

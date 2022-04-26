@@ -1,61 +1,27 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import * as React from "react";
 
-// Screens
+import { createStackNavigator } from "@react-navigation/stack";
+
 import HomeScreen from "./screens/HomeScreen";
 import FavoritScreen from "./screens/FavoritScreen";
 import MapScreen from "./screens/MapScreen";
+import DetailScreen from "./screens/DetailScreen";
+import RestaurantScreen from "./screens/RestaurantScreen";
 
-// Screen names
-const homeName = "Dornbirn";
-const favoritName = "Favorit";
-const mapName = "Map";
+const Stack = createStackNavigator();
 
-const Tab = createBottomTabNavigator();
-
-function MainContainer() {
+const MainContainer = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-
-        initialRouteName={homeName}
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-            let rn = route.name;
-
-            if (rn === homeName) {
-              iconName = focused ? 'home' : 'home-outline';
-
-            } else if (rn === favoritName) {
-              iconName = focused ? 'heart' : 'heart-outline';
-
-            } else if (rn === mapName) {
-              iconName = focused ? 'map' : 'map-outline';
-            }
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: "#DA948D",
-          tabBarInactiveTintColor: "grey",
-          tabBarStyle: {
-            padding: 5,
-            height: 55,
-          },
-          tabBarLabelStyle: {
-            fontSize: 10,
-            paddingBottom: 10
-          },
-        })}>
-
-        <Tab.Screen name={homeName} component={HomeScreen} />
-        <Tab.Screen name={favoritName} component={FavoritScreen} />
-        <Tab.Screen name={mapName} component={MapScreen} />
-
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator
+      initialRouteName={"Dorbnirn"}
+    >
+      <Stack.Screen name="Dorbnirn" component={HomeScreen} />
+      <Stack.Screen name="FavoritScreen" component={FavoritScreen} />
+      <Stack.Screen name="MapScreen" component={MapScreen} />
+      <Stack.Screen name="RestaurantScreen" component={RestaurantScreen} />
+      <Stack.Screen name="DetailScreen" component={DetailScreen} />
+    </Stack.Navigator>
   );
-}
+};
 
 export default MainContainer;
