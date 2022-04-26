@@ -16,6 +16,7 @@ import Bar from "../../backend/data/bar.json";
 import Bakery from "../../backend/data/bakery.json";
 
 const HomeScreen = ({ navigation }) => {
+
   const offerCategory = [
     { name: "Breakfast", id: 1, logo: "food-variant" },
     { name: "Lunch", id: 2, logo: "food" },
@@ -31,16 +32,17 @@ const HomeScreen = ({ navigation }) => {
   const [selectedCategory, setSelectCategory] = useState(null);
   const [restaurants, setRestaurants] = useState(restaurantData);
 
-  function onSelectCategory(category) {
+  const onSelectCategory = ({category}) => {
     // //filter restaurant
     // let restaurantList = restaurantData.filter((a) =>
     //   a.categories.includes(category.id)
     // );
     // setRestaurants(restaurantList);
     // setSelectCategory(category);
+    navigation.push('DetailScreen')
   }
 
-  function renderHeader() {
+  const renderHeader = () => {
     return (
       <View>
         <StatusBar translucent backgroundColor={COLORS.tranparent} />
@@ -57,7 +59,7 @@ const HomeScreen = ({ navigation }) => {
     );
   }
 
-  function renderMainCategories() {
+  const renderMainCategories = () => {
     return (
       <TouchableOpacity>
         <FlatList
@@ -96,7 +98,7 @@ const HomeScreen = ({ navigation }) => {
     );
   }
 
-  function renderRestaurantList() {
+  const renderRestaurantList = () => {
     const renderItem = ({ item }) => {
       return (
         <TouchableOpacity

@@ -21,14 +21,11 @@ const App = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="HomeScreen" component={{ MainContainer }} />
-        <Stack.Screen name="FavoritScreen" component={{ FavoritScreen }} />
-        <Stack.Screen name="MapScreen" component={{ MapScreen }} />
-        <Stack.Screen
-          name="RestaurantScreen"
-          component={{ RestaurantScreen }}
-        />
-        <Stack.Screen name="DetailScreen" component={{ DetailScreen }} />
+        <Stack.Screen name="HomeScreen" component={ MainContainer } />
+        <Stack.Screen name="FavoritScreen" component={ FavoritScreen } />
+        <Stack.Screen name="MapScreen" component={ MapScreen } />
+        <Stack.Screen name="RestaurantScreen" component={ RestaurantScreen }/>
+        <Stack.Screen name="DetailScreen" component={ DetailScreen } />
       </Stack.Navigator>
     </NavigationContainer>
   );

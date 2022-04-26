@@ -15,7 +15,7 @@ const mapName = "Map";
 
 const Tab = createBottomTabNavigator();
 
-function MainContainer() {
+const MainContainer = () => {
   return (
       <Tab.Navigator
 
