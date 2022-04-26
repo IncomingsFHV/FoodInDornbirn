@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import { back } from "react-native/Libraries/Animated/Easing";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
 const mineRestaurant = {
   "id": "5",
@@ -32,47 +32,58 @@ const mineRestaurant = {
   }
 };
 
-const RenderScreen = () => {
+
+const NameAdressStarComponent = () => {
+  return (
+  <View style={{marginBottom: 10, marginTop: 10, flexDirection: "row",}}>
+    <View style={{width: "70%"}}>
+      <Text style={styles.nameText}>
+        {mineRestaurant["name"]}
+      </Text>
+      <Text style={styles.addressText}>
+        {mineRestaurant["location"]}
+      </Text>
+    </View>
+    <View style={{width: "20%", justifyContent: "right",flexDirection: "row"}}>
+      <AntDesign name="staro"></AntDesign>
+      <AntDesign name="staro"></AntDesign>
+      <AntDesign name="staro"></AntDesign>
+      <AntDesign name="staro"></AntDesign>
+      <AntDesign name="staro"></AntDesign>
+    </View>
+  </View>
+  )
+};
+
+
+
+const MainDetailComponent = () => {
   return (
     <View>
       <Image style={styles.imageStyle}
         //source={mineRestaurant["image"]}
         source={require('../../backend/images/bierlokal.jpg')}>
       </Image>
-
-      <View>
-        <Text style={styles.nameText}>
-          {mineRestaurant["name"]}
-        </Text>
-      
-        <Text style={styles.addressText}>
-          {mineRestaurant["location"]}
-        </Text>
-      </View>
+      <NameAdressStarComponent></NameAdressStarComponent>
     </View>
   );
 }
 
-/*
-const DetailScreen = ({ navigation }) => {
+const TextComponent = () => {
   return(
-    <ScrollView>
-      {renderScreen()}
-      <View style={styles.descriptionBox}>
-        <Text style={styles.descriptionText}>
-          {mineRestaurant["description"]}
-        </Text>
-      </View>
-
-      
-    </ScrollView>
+   <View style={styles.descriptionBox}>
+    <Text style={styles.descriptionText}>
+      {mineRestaurant["description"]}
+    </Text>
+  </View>
   );
 };
-  */
-const DetailScreen = ({ navigation }) => {
+
+const DetailScreen = () => {
   return (
     <ScrollView>
-      <RenderScreen></RenderScreen>
+      <MainDetailComponent></MainDetailComponent>
+      <TextComponent></TextComponent>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <MobileContactInfo></MobileContactInfo>
         <WebsiteContactInfo></WebsiteContactInfo>
@@ -136,21 +147,6 @@ const MailContactInfo = ({}) => {
 
 //create our styling code:
 const styles = StyleSheet.create({
-  topBar:{
-    flexDirection: "row",
-    backgroundColor: "#FFFFFF",
-  },
-  backButton:{
-    height: 50,
-    width: 50,
-    backgroundColor: "#FFFFFF",
-  },
-  shareButton:{
-    height: 50,
-    width: 50,
-    backgroundColor: "#FFFFFF",
-    marginLeft: 255,
-  },
   imageStyle:{
     width: "100%",
     height: 200,
@@ -166,7 +162,9 @@ const styles = StyleSheet.create({
     zIndex: 1,
     fontWeight: "bold",
     fontSize: 15,
-    marginLeft: 7
+    marginLeft: 7,
+    marginTop: 6,
+    width: "80%",
   },
   descriptionBox: {
     marginLeft: 5,
