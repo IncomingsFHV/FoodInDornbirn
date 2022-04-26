@@ -16,7 +16,6 @@ import Bar from "../../backend/data/bar.json";
 import Bakery from "../../backend/data/bakery.json";
 
 const HomeScreen = ({ navigation }) => {
-
   const offerCategory = [
     { name: "Breakfast", id: 1, logo: "food-variant" },
     { name: "Lunch", id: 2, logo: "food" },
@@ -30,17 +29,20 @@ const HomeScreen = ({ navigation }) => {
 
   const [categories, setCategories] = useState(offerCategory);
   const [selectedCategory, setSelectCategory] = useState(null);
+  const [popular, setPopular] = useState(restaurantData);
   const [restaurants, setRestaurants] = useState(restaurantData);
 
-  const onSelectCategory = ({category}) => {
-    // //filter restaurant
-    // let restaurantList = restaurantData.filter((a) =>
-    //   a.categories.includes(category.id)
-    // );
-    // setRestaurants(restaurantList);
-    // setSelectCategory(category);
-    navigation.navigate('DetailScreen')
-  }
+  const onSelectCategory = ({ category }) => {
+    //filter restaurant
+    let restaurantList = restaurantData.filter((a) =>
+      a.categories.includes(category.id)
+    );
+    setRestaurants(restaurantList);
+    setSelectCategory(category);
+    navigation.navigate("RestaurantScreen", {
+      restaurants,
+    });
+  };
 
   const renderHeader = () => {
     return (
@@ -57,7 +59,7 @@ const HomeScreen = ({ navigation }) => {
         </ImageBackground>
       </View>
     );
-  }
+  };
 
   const renderMainCategories = () => {
     return (
@@ -96,14 +98,18 @@ const HomeScreen = ({ navigation }) => {
         />
       </TouchableOpacity>
     );
-  }
+  };
 
   const renderRestaurantList = () => {
     const renderItem = ({ item }) => {
       return (
         <TouchableOpacity
           style={{ marginEnd: 10 }}
-          //onpress -> navigate to Restaurant screen
+          onPress={() =>
+            navigation.navigate("DetailScreen", {
+              item,
+            })
+          }
         >
           <View style={{ padding: 0 }}>
             <Image
@@ -156,7 +162,7 @@ const HomeScreen = ({ navigation }) => {
           Popular
         </Text>
         <FlatList
-          data={restaurants.sort((a, b) => (+a.rating > +b.rating ? -1 : 1))}
+          data={popular.sort((a, b) => (+a.rating > +b.rating ? -1 : 1))}
           horizontal
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => `${item.id}`}
@@ -167,7 +173,7 @@ const HomeScreen = ({ navigation }) => {
         />
       </View>
     );
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>

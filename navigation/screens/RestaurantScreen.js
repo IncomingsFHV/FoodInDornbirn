@@ -1,32 +1,18 @@
 import React, {useState, useLayoutEffect} from 'react';
 import { SafeAreaView, StyleSheet, View, Text, Image,ImageBackground, FlatList, StatusBar} from 'react-native';
+import { useEffect } from 'react/cjs/react.production.min';
 import Data from "../../backend/data/test.json";
 
-const RestaurantScreen = () => {
+const RestaurantScreen = ({navigation, route}) => {
   const [selectedId, setSelectedId] = useState(null);
 
-  const json = Data;
-  const children = [];
-/*
-  useLayoutEffect(() => {
-    console.log(json)
-    json.forEach(item => {
-        const dict = {
-          name: item.name,
-          id: item.id,
-          address: item.address,
-          source: require(item.image),
-        }
-        console.log(dict)
-        children.push(dict);
-    })
-  }, []);
-*/
-  const [offer, setOffer] = useState([
-    { name: "RESTAURANT1", id: "1", adress: "address123456", source: require("../../backend/images/bierlokal.jpg")},
-    { name: "RESTAURANT2", id: "2", adress: "address123356", source: require("../../backend/images/7er-bar.jpg") },
-    { name: "RESTAURANT3", id: "3", adress: "address123556", source: require("../../backend/images/bierlokal.jpg") },
-  ]);
+  const [restaurants, setRestaurants] = React.useState(null)
+
+  React.useEffect(() => {
+    let { restaurants } = route.params
+
+    setRestaurants(restaurants)
+  })
 
   const renderItem = ({ item }) => {
     return (
@@ -45,7 +31,7 @@ const RestaurantScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={offer}
+        data={restaurants}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         extraData={selectedId}
