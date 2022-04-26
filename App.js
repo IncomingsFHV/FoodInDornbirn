@@ -1,34 +1,59 @@
 import * as React from "react";
-import MainContainer from "./navigation/MainContainer";
 import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import MainContainer from "./navigation/MainContainer";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { createStackNavigator } from "@react-navigation/stack";
-
+// Screens
 import HomeScreen from "./navigation/screens/HomeScreen";
 import FavoritScreen from "./navigation/screens/FavoritScreen";
 import MapScreen from "./navigation/screens/MapScreen";
-import DetailScreen from "./navigation/screens/DetailScreen";
-import RestaurantScreen from "./navigation/screens/RestaurantScreen";
 
-const Stack = createStackNavigator();
+// Screen names
+const homeName = "Dornbirn";
+const favoritName = "Favorit";
+const mapName = "Map";
+
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName={"HomeScreen"}
-        screenOption={{
-          headerShown: false,
-        }}
+      <Tab.Navigator
+        initialRouteName={homeName}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            let rn = route.name;
+
+            if (rn === homeName) {
+              iconName = focused ? "home" : "home-outline";
+            } else if (rn === favoritName) {
+              iconName = focused ? "heart" : "heart-outline";
+            } else if (rn === mapName) {
+              iconName = focused ? "map" : "map-outline";
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: "#DA948D",
+          tabBarInactiveTintColor: "grey",
+          tabBarStyle: {
+            padding: 5,
+            height: 55,
+          },
+          tabBarLabelStyle: {
+            fontSize: 10,
+            paddingBottom: 10,
+          },
+          headerShown: false
+        })}
       >
-        <Stack.Screen name="HomeScreen" component={ MainContainer } />
-        <Stack.Screen name="FavoritScreen" component={ FavoritScreen } />
-        <Stack.Screen name="MapScreen" component={ MapScreen } />
-        <Stack.Screen name="RestaurantScreen" component={ RestaurantScreen }/>
-        <Stack.Screen name="DetailScreen" component={ DetailScreen } />
-      </Stack.Navigator>
+        <Tab.Screen name={homeName} component={MainContainer} />
+        <Tab.Screen name={favoritName} component={FavoritScreen} />
+        <Tab.Screen name={mapName} component={MapScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 export default App;
