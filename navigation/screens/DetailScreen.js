@@ -24,7 +24,7 @@ const mineRestaurant = {
   "phone number": "+43 5572 538500",
   "location": "Marktstraße 12, 6850 Dornbirn, Österreich",
   "coordinates": "47.412534384879606, 9.74254468557075",
-  "Tag" : ["vegetarian","take-out", "wtf", "lmao"],
+  "Tag" : ["vegetarian","take-out", "dog-friendly", "free-parking"],
   "OpeningHours": [
     "Monday\t\t\t\t11:00-00:00",
     "Tuesday\t\t\t11:00-00:00",

@@ -13,13 +13,13 @@ const Stack = createStackNavigator();
 const MainContainer = () => {
   return (
     <Stack.Navigator
-      initialRouteName={"Dorbnirn"}
+      initialRouteName={"Dornbirn"}
     >
-      <Stack.Screen name="Dorbnirn" component={HomeScreen} />
+      <Stack.Screen name="Dornbirn" component={HomeScreen} />
       <Stack.Screen name="FavoritScreen" component={FavoritScreen} />
-      <Stack.Screen name="MapScreen" component={MapScreen} />
-      <Stack.Screen name="RestaurantScreen" component={RestaurantScreen} />
-      <Stack.Screen name="DetailScreen" component={DetailScreen} />
+      <Stack.Screen name="MapScreen" component={MapScreen}/>
+      <Stack.Screen name="RestaurantScreen" component={RestaurantScreen} options={{ title: 'Restaurants' }}/>
+      <Stack.Screen name="DetailScreen" component={DetailScreen} options={{ title: '' }}/>
     </Stack.Navigator>
   );
 };

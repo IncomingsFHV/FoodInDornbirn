@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Text} from 'react-native-ui-lib';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Keyboard } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
@@ -24,6 +24,69 @@ const markers = [{
     name: "Frei",
   },
   {
+    latitude: 47.41361683871995,
+    longitude: 9.742774217778962,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    name: "San Marco",
+  },
+  {
+    latitude: 47.41227020385477,
+    longitude: 9.74245570613719,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    name: "Gabriel's Cucina",
+  },
+  {
+    latitude: 47.41343193010803,
+    longitude: 9.742170545185651,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    name: "Rotes Haus",
+  },
+  {
+    latitude: 47.412534384879606,
+    longitude: 9.74254468557075,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    name: "Bierlokal",
+  },
+  {
+    latitude: 47.412920576069844,
+    longitude: 9.742285984507733,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    name: "Bäckerei Mangold",
+  },
+  {
+    latitude: 47.413536835740885,
+    longitude: 9.742490869167032,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    name: "Schertlerbrot",
+  },
+  {
+    latitude: 47.415359048832684,
+    longitude:  9.741850113343025,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    name: "Schwanenbäckerei",
+  },
+  {
+    latitude: 47.41422199102713,
+    longitude: 9.741850113343025,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    name: "Cafe Bäckerei",
+  },
+  {
+    latitude: 47.41697508359887,
+    longitude: 9.73945979800233,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    name: "Simit Coffee",
+  },
+  {
     latitude: 47.414202946015486,
     longitude: 9.742768182277276,
     latitudeDelta: 0.01,
@@ -32,6 +95,9 @@ const markers = [{
   }];
 
 
+
+    // "coordinates": "47.412920576069844, 9.742285984507733", "Bäckerei Mangold"
+    // "coordinates": "47.413536835740885, 9.742490869167032",  "Schertlerbrot"
 
 
 const MapScreen = ({ navigation }) => {
@@ -57,7 +123,7 @@ const MapScreen = ({ navigation }) => {
             toolbarEnabled={true}
             zoomEnabled={true}
             rotateEnabled={true}
-
+            onPress={Keyboard.dismiss()}
             region={mapRegion}
             >
             {markers.map((val, index) => {
@@ -93,7 +159,7 @@ const MapScreen = ({ navigation }) => {
           styles={{
             textInputContainer: {
               width:"90%",
-              marginTop: 5,
+              marginTop: 40,
               opacity: 0.9,
             },
             textInput: {
