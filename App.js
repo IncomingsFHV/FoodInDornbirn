@@ -5,7 +5,6 @@ import MainContainer from "./navigation/MainContainer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 // Screens
-import HomeScreen from "./navigation/screens/HomeScreen";
 import FavoritScreen from "./navigation/screens/FavoritScreen";
 import MapScreen from "./navigation/screens/MapScreen";
 

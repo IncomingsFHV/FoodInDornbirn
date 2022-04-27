@@ -108,13 +108,13 @@ const HomeScreen = ({ navigation }) => {
           style={{ marginEnd: 10 }}
           onPress={() =>
             navigation.navigate("DetailScreen", {
-              item,
+              restaurant: item,
             })
           }
         >
           <View style={{ padding: 0 }}>
             <Image
-              // source={require('../../backend/images' + item.image)}
+              source={{uri: item.image}}
               resizeMode="cover"
               style={{
                 width: 250,

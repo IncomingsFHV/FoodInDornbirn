@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
-import { Button } from 'react-native-ui-lib';
+import React from "react";
 import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
-  Image, 
+  Image,
 } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import COLORS from "../../consts/colors";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { View, Text } from "react-native-ui-lib";
+import Stars from "react-native-stars";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const RestaurantScreen = ({ navigation, route }) => {
   const [restaurants, setRestaurants] = React.useState(null);
@@ -24,16 +23,15 @@ const RestaurantScreen = ({ navigation, route }) => {
       return (
         <TouchableOpacity
           style={{ paddingBottom: 20 }}
-          onPress={() => 
-            {
+          onPress={() => {
             navigation.navigate("DetailScreen", {
               restaurant: item,
-            })}
-          }
+            });
+          }}
         >
           <View style={{ padding: 0 }}>
             <Image
-              source={require("../../backend/images/7er-bar.jpg")}
+              source={{uri: item.image}}
               resizeMode="cover"
               style={{
                 width: "100%",
@@ -42,18 +40,22 @@ const RestaurantScreen = ({ navigation, route }) => {
               }}
             />
           </View>
-          <View style={{flexDirection: "row", justifyContent: "space-between"}}>
-            <Text style={{ fontSize: 18, fontWeight: "bold"}}>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <Text style={{ fontSize: 18, fontWeight: "bold" }}>
               {item.name}
             </Text>
-              <MaterialCommunityIcons
-                name="star"
-                size={20}
-              >
-                <Text style={{ fontSize: 16, fontWeight: "bold"}}>
-                  {item.rating}
-                </Text>
-              </MaterialCommunityIcons>
+            <Stars
+              display={item.rating}
+              spacing={1}
+              count={5}
+              default={2.5}
+              half={true}
+              starSize={40}
+              fullStar={<Icon size={21} name={"star"} />}
+              emptyStar={<Icon size={21} name={"star-outline"} />}
+            />
           </View>
           <View>
             <Text>{item.location}</Text>
@@ -61,8 +63,8 @@ const RestaurantScreen = ({ navigation, route }) => {
         </TouchableOpacity>
       );
     };
-  
-  return (
+
+    return (
       <FlatList
         data={restaurants}
         keyExtractor={(item) => `${item.id}`}
