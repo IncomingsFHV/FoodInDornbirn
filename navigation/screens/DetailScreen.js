@@ -1,13 +1,18 @@
 import * as React from "react";
-import { View, Text } from 'react-native-ui-lib';
+import { View, Text} from 'react-native-ui-lib';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   Image,
   SafeAreaView,
-  StyleSheet
+  StyleSheet,
+  FlatList
 } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
-import { back } from "react-native/Libraries/Animated/Easing";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Chip } from 'react-native-paper';
+import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import Stars from 'react-native-stars';
+import { Feather } from '@expo/vector-icons'; 
 
 const mineRestaurant = {
   "id": "5",
@@ -21,58 +26,129 @@ const mineRestaurant = {
   "phone number": "+43 5572 538500",
   "location": "Marktstraße 12, 6850 Dornbirn, Österreich",
   "coordinates": "47.412534384879606, 9.74254468557075",
-  "OpeningHours": {
-    "Monday": "11:00-00:00",
-    "Tuesday": "11:00-00:00",
-    "Wednesday": "11:00-00:00",
-    "Thursday": "11:00-00:00",
-    "Friday": "11:00-00:00",
-    "Saturday": "10:00-00:00",
-    "Sunday": "Closed"
-  }
+  "Tag" : ["vegetarian","take-out", "wtf", "lmao"],
+  "OpeningHours": [
+    "Monday\t\t\t\t11:00-00:00",
+    "Tuesday\t\t\t11:00-00:00",
+    "Wednesday\t\t\t11:00-00:00",
+    "Thursday\t\t\t11:00-00:00",
+    "Friday\t\t\t\t11:00-00:00",
+    "Saturday\t\t\t10:00-00:00",
+    "Sunday\t\t\t\tClosed"
+  ],
 };
 
-const RenderScreen = () => {
+const ChipList = () => {
+  const items = mineRestaurant.Tag;
+
+  return ( 
+  <View style = {{flex:1}}>
+      {
+      items.map((item, index) => {
+        return (
+          <View style={{ margin: 5, flexWrap: 'wrap',}}>
+            <Chip
+              key={index}
+              mode="outlined" // changing display mode, default is flat.
+              height={30} // give desirable height to chip
+              textStyle={{ color:'black',fontSize: 15 }} // label properties
+              style={{ backgroundColor: "gray" }} // display diff color BG
+              onPress={() => console.log('Clicked Chip'+ item)}>
+              {item}
+            </Chip>
+          </View>)
+    })}
+  </View>)
+}
+
+const ChipListInfo = () => {
+  return (
+    <View style={{ width:"100%"}}>
+      <ChipList></ChipList>
+    </View>
+  )
+}
+
+const NameAdressStarComponent = () => {
+  return (
+  <View style={{marginBottom: 10, marginTop: 10, flexDirection: "row",}}>
+    <View style={{width: "70%"}}>
+      <Text style={styles.nameText}>
+        {mineRestaurant["name"]}
+      </Text>
+      <Text style={styles.addressText}>
+        {mineRestaurant["location"]}
+      </Text>
+    </View>
+    <View style={{width: "30%", alignItems: "flex-end", marginTop: 2, paddingRight: 10}}>
+      <View style={{flexDirection: "row"}}>
+        <Stars
+          display={3.67}
+          spacing={1}
+          count={5}
+          default={2.5}
+          half={true}
+          starSize={40}
+          fullStar= {<Icon size={21} name={"star"}/>}
+          emptyStar= {<Icon size={21} name={"star-outline"}/>}/>
+      </View>
+      <View style={{ marginTop: 6}}>
+        <Ionicons name="heart-outline" size={40}/>
+      </View>
+    </View>
+  </View>
+  )
+};
+
+const MainDetailComponent = () => {
   return (
     <View>
       <Image style={styles.imageStyle}
         //source={mineRestaurant["image"]}
         source={require('../../backend/images/bierlokal.jpg')}>
       </Image>
-
-      <View>
-        <Text style={styles.nameText}>
-          {mineRestaurant["name"]}
-        </Text>
-      
-        <Text style={styles.addressText}>
-          {mineRestaurant["location"]}
-        </Text>
-      </View>
+      <NameAdressStarComponent></NameAdressStarComponent>
     </View>
   );
 }
 
-/*
-const DetailScreen = ({ navigation }) => {
+const TextComponent = () => {
   return(
-    <ScrollView>
-      {renderScreen()}
-      <View style={styles.descriptionBox}>
-        <Text style={styles.descriptionText}>
-          {mineRestaurant["description"]}
-        </Text>
-      </View>
-
-      
-    </ScrollView>
+   <View style={styles.descriptionBox}>
+    <Text style={styles.descriptionText}>
+      {mineRestaurant["description"]}
+    </Text>
+  </View>
   );
 };
-  */
-const DetailScreen = ({ navigation }) => {
+
+const OpeningTextComponent = () => {
+  const items = mineRestaurant.OpeningHours;
+
+  return (
+    <View style={styles.descriptionBox}>
+      {
+      items.map((item, index) => {
+        return (
+          <View style={{ margin: 5, flexWrap: 'wrap',}}>
+            <Text style={styles.descriptionText}>
+              {item}
+            </Text>
+          </View>)
+    })}
+    </View>
+  )
+}
+
+const DetailScreen = () => {
   return (
     <ScrollView>
-      <RenderScreen></RenderScreen>
+      <MainDetailComponent></MainDetailComponent>
+      <ChipListInfo></ChipListInfo>
+      <TextComponent></TextComponent>
+      <Text style={{ fontSize: 25, margin: 10 }}>Opening Hours</Text>
+      <OpeningTextComponent></OpeningTextComponent>
+      <Text style={{ fontSize: 25, margin: 10 }}>Contact</Text>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <MobileContactInfo></MobileContactInfo>
         <WebsiteContactInfo></WebsiteContactInfo>
@@ -84,16 +160,16 @@ const DetailScreen = ({ navigation }) => {
 
 const MobileContactInfo = ({}) => {
   return (
-    <View style={{ flexDirection: "row"}}>
-      <View style={{ alignItems: 'center', width: "15%", backgroundColor: "green"}}>
-        <Text>aa</Text>
+    <View style={styles.contactContainer}>
+      <View style={styles.contactIconContainer}>
+        <AntDesign style={styles.contactIcon} name="mobile1" size={24} color="black" />
       </View>
-      <View style={{ width: "60%", backgroundColor: "red"}}>
-        <Text style={{ marginLeft: 20,}}>Mobile</Text>
-        <Text style={{ marginLeft: 20,}}>{mineRestaurant["phone number"]}</Text>
+      <View style={styles.contactInfoContainer}>
+        <Text style={styles.contactItemHeadline}>Mobile</Text>
+        <Text style={styles.contactItemContent}>{mineRestaurant["phone number"]}</Text>
       </View>
-      <View style={{ width: "25%"}}>
-        <MaterialCommunityIcons.Button>cc</MaterialCommunityIcons.Button >
+      <View style={styles.contactButtonContainer}>
+        <MaterialCommunityIcons.Button style={styles.contactButton}>Call</MaterialCommunityIcons.Button >
       </View>
     </View>
   )
@@ -101,16 +177,16 @@ const MobileContactInfo = ({}) => {
 
 const WebsiteContactInfo = ({}) => {
   return (
-    <View style={{ flexDirection: "row"}}>
-      <View style={{ alignItems: 'center', width: "15%", backgroundColor: "green"}}>
-        <Text>aa</Text>
+    <View style={styles.contactContainer}>
+      <View style={styles.contactIconContainer}>
+        <MaterialCommunityIcons  style={styles.contactIcon} name="web" size={24}></MaterialCommunityIcons>
       </View>
-      <View style={{ width: "60%", backgroundColor: "red"}}>
-        <Text style={{ marginLeft: 20,}}>Website</Text>
-        <Text style={{ marginLeft: 20,}}>{mineRestaurant["phone number"]}</Text>
+      <View style={styles.contactInfoContainer}>
+        <Text style={styles.contactItemHeadline}>Website</Text>
+        <Text style={styles.contactItemContent}>{mineRestaurant["website"]}</Text>
       </View>
-      <View style={{ width: "25%", backgroundColor: "black"}}>
-        <Text>cc</Text>
+      <View style={styles.contactButtonContainer}>
+      <MaterialCommunityIcons.Button style={styles.contactButton}>Browse</MaterialCommunityIcons.Button>
       </View>
     </View>
   )
@@ -118,16 +194,16 @@ const WebsiteContactInfo = ({}) => {
 
 const MailContactInfo = ({}) => {
   return (
-    <View style={{ flexDirection: "row"}}>
-      <View style={{ alignItems: 'center', width: "15%", backgroundColor: "green"}}>
-        <Text>aa</Text>
+    <View style={styles.contactContainer}>
+      <View style={styles.contactIconContainer}>
+        <Feather style={styles.contactIcon} name="mail" size={24} color="black" />
       </View>
-      <View style={{ width: "60%", backgroundColor: "red"}}>
-        <Text style={{ marginLeft: 20,}}>Mail</Text>
-        <Text style={{ marginLeft: 20,}}>email@email.com</Text>
+      <View style={styles.contactInfoContainer}>
+        <Text style={styles.contactItemHeadline}>Mail</Text>
+        <Text style={styles.contactItemContent}>email@email.com</Text>
       </View>
-      <View style={{ width: "25%", backgroundColor: "black"}}>
-        <Text>cc</Text>
+      <View style={styles.contactButtonContainer}>
+        <MaterialCommunityIcons.Button style={styles.contactButton}>Message</MaterialCommunityIcons.Button>
       </View>
     </View>
   )
@@ -136,20 +212,43 @@ const MailContactInfo = ({}) => {
 
 //create our styling code:
 const styles = StyleSheet.create({
-  topBar:{
+  contactContainer:{
     flexDirection: "row",
-    backgroundColor: "#FFFFFF",
+    marginRight: 15,
   },
-  backButton:{
-    height: 50,
-    width: 50,
-    backgroundColor: "#FFFFFF",
+  contactItemHeadline: {
+    marginLeft: 10,
+    fontSize: 20,
+    marginBottom: 5,
   },
-  shareButton:{
-    height: 50,
-    width: 50,
-    backgroundColor: "#FFFFFF",
-    marginLeft: 255,
+  contactItemContent: {
+    marginLeft: 10,
+    fontSize: 14,
+    marginBottom: 5,
+  },
+  contactIcon: {
+    padding: 10,
+    color: "gray",
+  },
+  contactInfoContainer: { 
+    width: "60%", 
+    paddingBottom: 15,
+  },
+  contactIconContainer: { 
+    alignItems: 'center', 
+    width: "15%", 
+  },
+  contactButtonContainer: {
+    width: "25%",
+    marginTop: 8,
+    padding: 6,
+  },
+  contactButton: {
+    justifyContent: 'center',
+    textAlign: "center",
+    width: "100%",
+    fontSize: 20,
+    backgroundColor: "gray",
   },
   imageStyle:{
     width: "100%",
@@ -157,7 +256,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   nameText: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: "bold",
     marginLeft: 7,
     marginRight: 7
@@ -172,12 +271,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     marginTop: 3,
-    marginBottom: 3,
-    borderColor: "#DA948D",
-    borderRadius: 5,
-    borderWidth: 2,
-    backgroundColor: "#FFD9D9"
-    
+    marginBottom: 3,    
   },
   descriptionText: {
     fontSize: 15,

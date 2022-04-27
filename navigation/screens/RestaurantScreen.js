@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { SafeAreaView, StyleSheet, View, Text, Image, FlatList, StatusBar} from 'react-native';
+import { Button } from 'react-native-ui-lib';
 
 const RestaurantScreen = ({navigation, route}) => {
   const [selectedId, setSelectedId] = useState(null);
@@ -15,10 +16,11 @@ const RestaurantScreen = ({navigation, route}) => {
   const renderItem = ({ item }) => {
     return (
       <View style={{ padding: 10 }}>
-        <Image
+        <Button
           //source={require("../../assets/restaurant-in-valkenswaard.jpg
-          style={styles.coverImage}>
-        </Image>
+          style={styles.coverImage}
+          onPress={() => navigation.push("DetailScreen")}>
+        </Button>
           <Text style={styles.text}>{item.name}</Text>
           <Text style={styles.text}>{item.adress}</Text>
       </View>
@@ -47,6 +49,7 @@ const styles = StyleSheet.create({
     height: 300,
     width: null,
     borderRadius: 15,
+    backgroundColor: "blue",
   },
     text: {
       fontSize: 15,
