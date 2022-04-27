@@ -1,5 +1,0 @@
-[
-    { "name": "RESTAURANT1", "id": "1", "address": "address123456", "image": "../../backend/images/bierlokal.jpg" },
-    { "name": "RESTAURANT2", "id": "2", "address": "address123356", "image": "../../backend/images/7er-bar.jpg" },
-    { "name": "RESTAURANT3", "id": "3", "address": "address123556", "image": "../../backend/images/bierlokal.jpg" }
-]

@@ -3,11 +3,9 @@ import { View, Text} from 'react-native-ui-lib';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   Image,
-  SafeAreaView,
-  StyleSheet,
-  FlatList
+  StyleSheet
 } from "react-native";
-import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "react-native-gesture-handler";
 import { Chip } from 'react-native-paper';
 import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -105,13 +103,12 @@ const NameAdressStarComponent = ({ name, location, rating }) => {
 
 const MainDetailComponent = ( data ) => {
 
-  const { name, location, rating } = data;
+  const { name, location, rating, image } = data;
 
   return (
     <View>
       <Image style={styles.imageStyle}
-        //source={mineRestaurant["image"]}
-        source={require('../../backend/images/bierlokal.jpg')}>
+        source={{uri: image}}>
       </Image>
       <NameAdressStarComponent name={name} location={location} rating={rating}/>
     </View>
@@ -153,7 +150,7 @@ const DetailScreen = ({ route, navigation }) => {
   return (
     <ScrollView>
       <MainDetailComponent 
-          // image={restaurant.image} 
+          image={restaurant.image} 
           name={restaurant.name} 
           location={restaurant.location} 
           rating={restaurant.rating}/>
