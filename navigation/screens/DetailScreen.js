@@ -69,21 +69,24 @@ const ChipListInfo = () => {
   )
 }
 
-const NameAdressStarComponent = () => {
+const NameAdressStarComponent = ({ name, location, rating }) => {
+
+  // const { name, location, rating} = props;
+
   return (
   <View style={{marginBottom: 10, marginTop: 10, flexDirection: "row",}}>
     <View style={{width: "70%"}}>
       <Text style={styles.nameText}>
-        {mineRestaurant["name"]}
+        {name}
       </Text>
       <Text style={styles.addressText}>
-        {mineRestaurant["location"]}
+        {location}
       </Text>
     </View>
     <View style={{width: "30%", alignItems: "flex-end", marginTop: 2, paddingRight: 10}}>
       <View style={{flexDirection: "row"}}>
         <Stars
-          display={3.67}
+          display={rating}
           spacing={1}
           count={5}
           default={2.5}
@@ -100,14 +103,17 @@ const NameAdressStarComponent = () => {
   )
 };
 
-const MainDetailComponent = () => {
+const MainDetailComponent = ( data ) => {
+
+  const { name, location, rating } = data;
+
   return (
     <View>
       <Image style={styles.imageStyle}
         //source={mineRestaurant["image"]}
         source={require('../../backend/images/bierlokal.jpg')}>
       </Image>
-      <NameAdressStarComponent></NameAdressStarComponent>
+      <NameAdressStarComponent name={name} location={location} rating={rating}/>
     </View>
   );
 }
@@ -140,10 +146,17 @@ const OpeningTextComponent = () => {
   )
 }
 
-const DetailScreen = () => {
+const DetailScreen = ({ route, navigation }) => {
+
+  const { itemId, restaurant } = route.params;
+
   return (
     <ScrollView>
-      <MainDetailComponent></MainDetailComponent>
+      <MainDetailComponent 
+          // image={restaurant.image} 
+          name={restaurant.name} 
+          location={restaurant.location} 
+          rating={restaurant.rating}/>
       <ChipListInfo></ChipListInfo>
       <TextComponent></TextComponent>
       <Text style={{ fontSize: 25, margin: 10 }}>Opening Hours</Text>
