@@ -10,16 +10,24 @@ import RestaurantScreen from "./screens/RestaurantScreen";
 
 const Stack = createStackNavigator();
 
+// Stack Navigator provides a way for your app to transition between screens where each new screen is placed on top of a stack.
+
 const MainContainer = () => {
   return (
-    <Stack.Navigator
-      initialRouteName={"Dornbirn"}
-    >
+    <Stack.Navigator initialRouteName={"Dornbirn"}>
       <Stack.Screen name="Dornbirn" component={HomeScreen} />
       <Stack.Screen name="FavoritScreen" component={FavoritScreen} />
-      <Stack.Screen name="MapScreen" component={MapScreen}/>
-      <Stack.Screen name="RestaurantScreen" component={RestaurantScreen} options={{ title: 'Restaurants' }}/>
-      <Stack.Screen name="DetailScreen" component={DetailScreen} options={{ title: '' }}/>
+      <Stack.Screen name="MapScreen" component={MapScreen} />
+      <Stack.Screen
+        name="RestaurantScreen"
+        component={RestaurantScreen}
+        options={{ title: "Restaurants" }}
+      />
+      <Stack.Screen
+        name="DetailScreen"
+        component={DetailScreen}
+        options={{ title: "" }}
+      />
     </Stack.Navigator>
   );
 };

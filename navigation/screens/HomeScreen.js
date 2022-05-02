@@ -11,11 +11,12 @@ import { FlatList, ScrollView } from "react-native-gesture-handler";
 import COLORS from "../../consts/colors";
 import { View, Text } from "react-native-ui-lib";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import Restaurant from "../../backend/data/resturante.json";
-import Bar from "../../backend/data/bar.json";
-import Bakery from "../../backend/data/bakery.json";
+import Requester from "../../backend/Requester";
+import { findFocusedRoute } from "@react-navigation/native";
 
 const HomeScreen = ({ navigation }) => {
+  // Category for Main page. ID is linked with JSON file for filtering
+
   const offerCategory = [
     { name: "Breakfast", id: 1, logo: "food-variant" },
     { name: "Lunch", id: 2, logo: "food" },
@@ -25,14 +26,23 @@ const HomeScreen = ({ navigation }) => {
     { name: "Drinks", id: 6, logo: "glass-cocktail" },
   ];
 
+  // Calling JSON files from abstraction layer Requester.js
+
+  const Restaurant = Requester.getResturant();
+  const Bar = Requester.getBar();
+  const Bakery = Requester.getBakery();
+
+  // For the filtering it is neccessay to put data together
+
   const restaurantData = [...Restaurant, ...Bar, ...Bakery];
 
   const [categories, setCategories] = useState(offerCategory);
   const [popular, setPopular] = useState(restaurantData);
   const [restaurants, setRestaurants] = useState(restaurantData);
 
+  // Filtering restaurants based on ID and categories in JSON file
+
   const onSelectCategory = (item) => {
-    //filter restaurant
     let restaurantList = restaurantData.filter((a) =>
       a.categories.includes(item.id)
     );
@@ -41,6 +51,8 @@ const HomeScreen = ({ navigation }) => {
       restaurants,
     });
   };
+
+  // Rendering for Image View and Name
 
   const renderHeader = () => {
     return (
@@ -58,6 +70,8 @@ const HomeScreen = ({ navigation }) => {
       </View>
     );
   };
+
+  // Rendering for Buttons
 
   const renderMainCategories = () => {
     const renderItem = ({ item }) => (
@@ -101,6 +115,8 @@ const HomeScreen = ({ navigation }) => {
     );
   };
 
+  // Rendering Restaurant list on the bottom
+
   const renderRestaurantList = () => {
     const renderItem = ({ item }) => {
       return (
@@ -114,7 +130,7 @@ const HomeScreen = ({ navigation }) => {
         >
           <View style={{ padding: 0 }}>
             <Image
-              source={{uri: item.image}}
+              source={{ uri: item.image }}
               resizeMode="cover"
               style={{
                 width: 250,
@@ -227,7 +243,6 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     borderRadius: 15,
     opacity: 0.7,
-    fontFamily: "sans-serif",
     fontWeight: "bold",
   },
 });

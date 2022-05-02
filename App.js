@@ -13,6 +13,7 @@ const homeName = "Home";
 const favoritName = "Favorit";
 const mapName = "Map";
 
+// Tab navigation is working for bottom tab navigation
 const Tab = createBottomTabNavigator();
 
 const App = () => {
@@ -44,7 +45,7 @@ const App = () => {
             fontSize: 10,
             paddingBottom: 10,
           },
-          headerShown: false
+          headerShown: false,
         })}
       >
         <Tab.Screen name={homeName} component={MainContainer} />

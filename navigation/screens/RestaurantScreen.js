@@ -8,15 +8,21 @@ import {
 import { FlatList } from "react-native-gesture-handler";
 import { View, Text } from "react-native-ui-lib";
 import Stars from "react-native-stars";
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+
+// Restaurant screen must have route for getting params from HomeScreen
 
 const RestaurantScreen = ({ navigation, route }) => {
   const [restaurants, setRestaurants] = React.useState(null);
+
+  // Getting restaurants filtered list based on category
 
   React.useEffect(() => {
     let { restaurants } = route.params;
     setRestaurants(restaurants);
   });
+
+  // Rendering restaurants
 
   function renderRestaurantList() {
     const renderItem = ({ item }) => {
@@ -31,7 +37,7 @@ const RestaurantScreen = ({ navigation, route }) => {
         >
           <View style={{ padding: 0 }}>
             <Image
-              source={{uri: item.image}}
+              source={{ uri: item.image }}
               resizeMode="cover"
               style={{
                 width: "100%",
