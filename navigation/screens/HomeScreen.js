@@ -47,10 +47,12 @@ const HomeScreen = ({ navigation }) => {
       a.categories.includes(item.id)
     );
     setRestaurants(restaurantList);
-    navigation.navigate("RestaurantScreen", {
-      restaurants,
-    });
-  };
+  navigation.navigate("RestaurantScreen", {
+    restaurants: restaurants,
+    restaurantTitle: item.name,
+  });
+};
+
 
   // Rendering for Image View and Name
 

@@ -20,7 +20,9 @@ const RestaurantScreen = ({ navigation, route }) => {
   React.useEffect(() => {
     let { restaurants } = route.params;
     setRestaurants(restaurants);
+    navigation.setOptions({ title: "Restaurants offer "+route.params.restaurantTitle })
   });
+
 
   // Rendering restaurants
 
