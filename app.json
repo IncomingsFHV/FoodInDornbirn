@@ -4,9 +4,9 @@
     "slug": "FoodInDornbirn",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/appstore.png",
+    "icon": "./assets/ic_launcher.png",
     "splash": {
-      "image": "./assets/appstore.png",
+      "image": "./assets/ic_launcher.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,7 +21,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/appstore.png",
+        "foregroundImage": "./assets/ic_launcher.png",
         "backgroundColor": "#ffffff"
       }
     },
