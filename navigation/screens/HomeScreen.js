@@ -12,7 +12,6 @@ import COLORS from "../../consts/colors";
 import { View, Text } from "react-native-ui-lib";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Requester from "../../backend/Requester";
-import { findFocusedRoute } from "@react-navigation/native";
 
 const HomeScreen = ({ navigation }) => {
   // Category for Main page. ID is linked with JSON file for filtering
