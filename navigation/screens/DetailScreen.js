@@ -3,14 +3,14 @@ import { View, Text} from 'react-native-ui-lib';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   Image,
-  StyleSheet
+  StyleSheet, Button, Linking
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { Chip } from 'react-native-paper';
 import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Stars from 'react-native-stars';
-import { Feather } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons';
 
 const mineRestaurant = {
   "id": "5",
@@ -179,7 +179,7 @@ const MobileContactInfo = ({}) => {
         <Text style={styles.contactItemContent}>{mineRestaurant["phone number"]}</Text>
       </View>
       <View style={styles.contactButtonContainer}>
-        <MaterialCommunityIcons.Button style={styles.contactButton}>Call</MaterialCommunityIcons.Button >
+        <MaterialCommunityIcons.Button onPress={() => {Linking.openURL("tel:"+mineRestaurant["phone number"])}} style={styles.contactButton}>Call</MaterialCommunityIcons.Button >
       </View>
     </View>
   )
@@ -196,7 +196,7 @@ const WebsiteContactInfo = ({}) => {
         <Text style={styles.contactItemContent}>{mineRestaurant["website"]}</Text>
       </View>
       <View style={styles.contactButtonContainer}>
-      <MaterialCommunityIcons.Button style={styles.contactButton}>Browse</MaterialCommunityIcons.Button>
+      <MaterialCommunityIcons.Button onPress={() => {Linking.openURL(mineRestaurant["website"])}} style={styles.contactButton}>Browse</MaterialCommunityIcons.Button>
       </View>
     </View>
   )
@@ -213,7 +213,7 @@ const MailContactInfo = ({}) => {
         <Text style={styles.contactItemContent}>email@email.com</Text>
       </View>
       <View style={styles.contactButtonContainer}>
-        <MaterialCommunityIcons.Button style={styles.contactButton}>Message</MaterialCommunityIcons.Button>
+        <MaterialCommunityIcons.Button onPress={() => {Linking.openURL("mailto: email@email.com")}} style={styles.contactButton}>Message</MaterialCommunityIcons.Button>
       </View>
     </View>
   )
