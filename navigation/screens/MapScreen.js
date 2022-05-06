@@ -1,99 +1,14 @@
-import * as React from "react";
-import { View, Text} from 'react-native-ui-lib';
+import React, { useState, useEffect } from "react";
+import { View, Text, Button} from 'react-native-ui-lib';
 import { StyleSheet, Keyboard } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import Requester from "../../backend/Requester";
 
 import { GOOGLE_API_KEY } from "@env";
 
 const DELTA_LATITUDE = 0.06;
 const DELTA_LONGITUDE = 0.02;
-
-const markers = [{
-    latitude: 47.40735,
-    longitude: 9.73132,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Tivoli",
-  },
-  {
-    latitude: 47.41323,
-    longitude: 9.742263927011363,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Frei",
-  },
-  {
-    latitude: 47.41361683871995,
-    longitude: 9.742774217778962,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "San Marco",
-  },
-  {
-    latitude: 47.41227020385477,
-    longitude: 9.74245570613719,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Gabriel's Cucina",
-  },
-  {
-    latitude: 47.41343193010803,
-    longitude: 9.742170545185651,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Rotes Haus",
-  },
-  {
-    latitude: 47.412534384879606,
-    longitude: 9.74254468557075,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Bierlokal",
-  },
-  {
-    latitude: 47.412920576069844,
-    longitude: 9.742285984507733,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Bäckerei Mangold",
-  },
-  {
-    latitude: 47.413536835740885,
-    longitude: 9.742490869167032,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Schertlerbrot",
-  },
-  {
-    latitude: 47.415359048832684,
-    longitude:  9.741850113343025,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Schwanenbäckerei",
-  },
-  {
-    latitude: 47.41422199102713,
-    longitude: 9.741850113343025,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Cafe Bäckerei",
-  },
-  {
-    latitude: 47.41697508359887,
-    longitude: 9.73945979800233,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Simit Coffee",
-  },
-  {
-    latitude: 47.414202946015486,
-    longitude: 9.742768182277276,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-    name: "Cafesito"
-  }];
-
 
 
     // "coordinates": "47.412920576069844, 9.742285984507733", "Bäckerei Mangold"
@@ -105,10 +20,31 @@ const MapScreen = ({ navigation }) => {
   const [mapRegion, setMapRegion] = React.useState({
     latitude: 47.41235,
     longitude: 9.74324,
-    latitudeDelta: 0.06,
+    latitudeDelta: 0.03,
     longitudeDelta: 0.02,
-  })
- 
+  });
+
+  const [restaurantsCoords, setRestaurantsCoords] = useState([])
+  const setAll = () => {
+    const Bar = Requester.getBar();
+    const Bakery = Requester.getBakery();
+    const Restaurant = Requester.getResturant();
+    const data = [...Restaurant, ...Bar, ...Bakery];
+    var coords = []
+
+    data.forEach(function(item) { 
+      var splitCoordinates = item.coordinates.split(", ")
+      var latitude = parseFloat(splitCoordinates[0])
+      var longitude = parseFloat(splitCoordinates[1])
+   
+      coords.push({"name": item.name, "latitude": latitude, "longitude": longitude, "latitudeDelta": 0.06, "longitudeDelta": 0.02})
+    });
+    setRestaurantsCoords(coords);
+  };
+
+  useEffect(() => {
+    setAll()
+  },[])
 
   return (
     <View style={styles.container}>
@@ -126,7 +62,8 @@ const MapScreen = ({ navigation }) => {
             onPress={Keyboard.dismiss()}
             region={mapRegion}
             >
-            {markers.map((val, index) => {
+            {
+            restaurantsCoords.map((val, index) => {
               return (<MapView.Marker
                       coordinate={{
                       latitude: val.latitude,
