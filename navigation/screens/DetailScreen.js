@@ -73,7 +73,7 @@ const DetailScreen = ({ route, navigation }) => {
     );
   };
 
-  // Opening component 
+  // Opening component
 
   const OpeningTextComponent = () => {
     return (
@@ -112,27 +112,39 @@ const DetailScreen = ({ route, navigation }) => {
     );
   };
 
-  // Chip list with Tags for restaurants 
+  // Chip list with Tags for restaurants
 
   const ChipList = () => {
     return (
-      <View style={{ flex: 1, margin: 5, flexWrap: "wrap" }}>
-        <Chip
-          //key={index}
-          mode="outlined"
-          height={30}
-          textStyle={{ color: "black", fontSize: 15 }}
-          style={{ backgroundColor: "gray" }}
-        >
-          {restaurant.Tag}
-        </Chip>
+      <View style={{flexDirection: "row"}}>
+        {restaurant.Tag.map((item, index) => {
+          return (
+            <View
+              style={{
+                margin: 5,
+                flexDirection: "row",
+                flexWrap: "wrap",
+              }}
+            >
+              <Chip
+                key={index}
+                mode="outlined"
+                height={30}
+                textStyle={{ color: "white", fontSize: 15 }}
+                style={{ backgroundColor: "#DA948D" }}
+              >
+                {item}
+              </Chip>
+            </View>
+          );
+        })}
       </View>
     );
   };
 
   const ChipListInfo = () => {
     return (
-      <View style={{ width: "100%" }}>
+      <View>
         <ChipList></ChipList>
       </View>
     );
@@ -201,7 +213,7 @@ const DetailScreen = ({ route, navigation }) => {
     );
   };
 
-  // Mailing button with intent to the email app 
+  // Mailing button with intent to the email app
 
   const MailContactInfo = ({}) => {
     return (
@@ -221,7 +233,7 @@ const DetailScreen = ({ route, navigation }) => {
         <View style={styles.contactButtonContainer}>
           <MaterialCommunityIcons.Button
             onPress={() => {
-              Linking.openURL(`mailto:${restaurant.email}`)
+              Linking.openURL(`mailto:${restaurant.email}`);
             }}
             style={styles.contactButton}
           >
@@ -271,7 +283,7 @@ const styles = StyleSheet.create({
   },
   contactIcon: {
     padding: 10,
-    color: "gray",
+    color: "#DA948D",
   },
   contactInfoContainer: {
     width: "60%",
@@ -284,14 +296,14 @@ const styles = StyleSheet.create({
   contactButtonContainer: {
     width: "25%",
     marginTop: 8,
-    padding: 6,
+    padding: 4,
   },
   contactButton: {
     justifyContent: "center",
     textAlign: "center",
     width: "100%",
     fontSize: 20,
-    backgroundColor: "gray",
+    backgroundColor: "#DA948D",
   },
   imageStyle: {
     width: "100%",
