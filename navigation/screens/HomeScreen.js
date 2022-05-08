@@ -126,6 +126,7 @@ const HomeScreen = ({ navigation }) => {
           onPress={() =>
             navigation.navigate("DetailScreen", {
               restaurant: item,
+              restaurantTitle: item.name,
             })
           }
         >
