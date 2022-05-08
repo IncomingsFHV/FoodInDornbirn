@@ -4,13 +4,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MainContainer from "./navigation/MainContainer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-// Screens
-import FavoritScreen from "./navigation/screens/FavoritScreen";
+// Screen
 import MapScreen from "./navigation/screens/MapScreen";
 
 // Screen names
 const homeName = "Home";
-const favoritName = "Favorit";
 const mapName = "Map";
 
 // Tab navigation is working for bottom tab navigation
@@ -28,8 +26,6 @@ const App = () => {
 
             if (rn === homeName) {
               iconName = focused ? "home" : "home-outline";
-            } else if (rn === favoritName) {
-              iconName = focused ? "heart" : "heart-outline";
             } else if (rn === mapName) {
               iconName = focused ? "map" : "map-outline";
             }
@@ -49,7 +45,6 @@ const App = () => {
         })}
       >
         <Tab.Screen name={homeName} component={MainContainer} />
-        <Tab.Screen name={favoritName} component={FavoritScreen} />
         <Tab.Screen name={mapName} component={MapScreen} />
       </Tab.Navigator>
     </NavigationContainer>
