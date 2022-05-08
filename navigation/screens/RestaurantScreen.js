@@ -20,7 +20,7 @@ const RestaurantScreen = ({ navigation, route }) => {
   React.useEffect(() => {
     let { restaurants } = route.params;
     setRestaurants(restaurants);
-    navigation.setOptions({ title: "Restaurants offer "+route.params.restaurantTitle })
+    navigation.setOptions({ title: route.params.restaurantTitle })
   });
 
 
@@ -34,6 +34,7 @@ const RestaurantScreen = ({ navigation, route }) => {
           onPress={() => {
             navigation.navigate("DetailScreen", {
               restaurant: item,
+              restaurantTitle: item.name,
             });
           }}
         >
