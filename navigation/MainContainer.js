@@ -15,7 +15,6 @@ const MainContainer = () => {
   return (
     <Stack.Navigator initialRouteName={"Dornbirn"}>
       <Stack.Screen name="Dornbirn" component={HomeScreen} />
-      <Stack.Screen name="MapScreen" component={MapScreen} />
       <Stack.Screen
         name="RestaurantScreen"
         component={RestaurantScreen}

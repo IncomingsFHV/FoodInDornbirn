@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Image, View, Text, FlatList, ActivityIndicator, TouchableOpacity} from 'react-native';
-import { ListItem, SearchBar } from 'react-native-elements';
-import { Button } from 'react-native-ui-lib';
+import { Image, View, Text, FlatList, TouchableOpacity} from 'react-native';
+import { SearchBar } from 'react-native-elements';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-class FlatListDemo extends Component {
+
+// renders the list of restaurants in the search view, available from the map component
+
+class FlatListRestaurant extends Component {
   constructor(props) {
     super(props);
 
@@ -80,8 +82,6 @@ class FlatListDemo extends Component {
     );
   };
 
-
-
   render() {
 
     return (
@@ -100,6 +100,8 @@ class FlatListDemo extends Component {
     );
   }
 }
+
+// represents one row in the search list of restaurants
 
 const MyItem = ({ item, hideModal, selectRestaurant }) => {
   return (<TouchableOpacity
@@ -132,4 +134,4 @@ const MyItem = ({ item, hideModal, selectRestaurant }) => {
   );
 };
 
-export default FlatListDemo;
+export default FlatListRestaurant ;

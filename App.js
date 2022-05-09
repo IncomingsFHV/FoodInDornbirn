@@ -5,11 +5,11 @@ import MainContainer from "./navigation/MainContainer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 // Screen
-import MapScreen from "./navigation/screens/MapScreen";
+import MapContent from "./navigation/screens/MapScreen";
 
 // Screen names
 const homeName = "Home";
-const mapName = "Map";
+const mapName = "MapContent";
 
 // Tab navigation is working for bottom tab navigation
 const Tab = createBottomTabNavigator();
@@ -45,7 +45,7 @@ const App = () => {
         })}
       >
         <Tab.Screen name={homeName} component={MainContainer} />
-        <Tab.Screen name={mapName} component={MapScreen} />
+        <Tab.Screen name={mapName} component={MapContent} />
       </Tab.Navigator>
     </NavigationContainer>
   );
