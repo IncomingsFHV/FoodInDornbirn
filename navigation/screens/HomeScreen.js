@@ -77,7 +77,7 @@ const HomeScreen = ({ navigation }) => {
   const renderMainCategories = () => {
     const renderItem = ({ item }) => (
       <TouchableOpacity
-        style={{ padding: 5 }}
+        style={{ padding: 3 }}
         onPress={() => onSelectCategory(item)}
       >
         <MaterialCommunityIcons.Button
@@ -88,7 +88,7 @@ const HomeScreen = ({ navigation }) => {
             alignContent: "space-around",
             justifyContent: "center",
             alignItems: "center",
-            margin: 10,
+            margin: 9,
           }}
           onPress={() => onSelectCategory(item)}
           size={40}
@@ -111,6 +111,7 @@ const HomeScreen = ({ navigation }) => {
         contentContainerStyle={{
           paddingVertical: 10,
           paddingLeft: 5,
+          paddingRight: 5
         }}
       />
     );
