@@ -25,7 +25,7 @@ const Stack = createStackNavigator();
 const MapContent = () => {
   return (
     <Stack.Navigator initialRouteName={"Map"}>
-      <Stack.Screen name="Map" component={MapScreen} />
+      <Stack.Screen options={{headerShown: false}} name="Map" component={MapScreen} />
       <Stack.Screen
         name="DetailScreen"
         component={DetailScreen}
@@ -144,7 +144,7 @@ const MapScreen = ({ navigation }) => {
 const MapButtons = ({reloadRestaurants, setFilterModalVisible}) => {
 
   return (
-    <View style={{ marginRight: 10, marginTop: 20}}>
+    <View style={{ marginRight: 10, marginTop: 40}}>
       <MaterialCommunityIcons.Button
         style={{
           margin: "auto",
