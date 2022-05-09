@@ -145,7 +145,7 @@ const HomeScreen = ({ navigation }) => {
             style={{
               position: "absolute",
               bottom: 0,
-              height: 40,
+              height: 55,
               width: 100,
               backgroundColor: COLORS.white,
               borderTopRightRadius: 15,
