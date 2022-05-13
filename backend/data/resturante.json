@@ -94,30 +94,6 @@
         "Sunday": "11:30–00:00"
       },
       "Tag" : ["vegetarian","take-out","out-door","non-smoker"]
-    },
-    {
-      "id": "15",
-      "name": "BurgerCraft",
-      "type": "restaurant",
-      "rating": 3,
-      "categories": [2,3,6],
-      "description": "BURGERCRAFT IN DORNBIRN\nIn unserem brandneuen und innovativen Selbstbedienungslokal in der Dornbirner Marktstraße bieten wir dir herzhafte Tacos, würzige Nachos, saftige Chicken Wings und – wie der Name schon sagt – natürlich auch schmackhafte Burger, mit allem was dazu gehört. Unsere hausgemachten Saucen-Spezialitäten sind dabei ein besonderes Highlight.",
-      "image": "https://www.burgercraft.at/wp-content/uploads/2021/06/burgercraft-impressionen-01.jpg",
-      "website": "https://www.burgercraft.at/",
-      "phoneNumber": "+43 5572 386356",
-      "location": "Marktstraße 21, 6850 Dornbirn, Österreich",
-      "coordinates": "47.41270646959866, 9.743379175450606",
-      "email": "info@burgercraft.at",
-      "OpeningHours": {
-        "Monday": "11:30–14:00  17:00–22:00",
-        "Tuesday": "11:30–14:00  17:00–22:00",
-        "Wednesday": "11:30–14:00  17:00–22:00",
-        "Thursday": "11:30–14:00  17:00–22:00",
-        "Friday": "11:30–22:00",
-        "Saturday": "11:30–22:00",
-        "Sunday": "11:30–22:00"
-      },
-      "Tag" : ["vegetarian","take-out","out-door","non-smoker"]
     }
 ]
 

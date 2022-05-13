@@ -24,30 +24,6 @@
       "Tag" : ["vegetarian","take-out"]
     },
     {
-      "id": "2",
-      "name": "Schertlerbrot",
-      "type": "bakery",
-      "rating": 4,
-      "categories": [1,2,4,5],
-      "description": "Die Zeiten ändern sich, gutes Handwerk nicht.\n\nSchertlerbrot gibt es schon seit drei Generationen und wird seit 1928 hergestellt. Es begann im Oberdorf in Dornbirn, wo Josef Schertler seine erste Bäckerei betrieb. Seit 1936 wird Schertlerbrot in Feldkirch gemacht, wo Hanssepp Schertler mit seinen 2 Schwestern den Betrieb weitergeführt und vergrößert hat. Immer mehr handwerkliche Brotrezepte und auch feine Konditoreiwaren wurden dem Sortiment hinzugefügt.\n\nJetzt, in der 3. Generation, wurde der Betrieb in Feldkirch auf insgesamt sieben Filialen vergrößert und die Backstube 2015 von der Innenstadt nach Tosters in die Illstrasse verlegt, in der auch das Business Motel Feldkirch betrieben wird.\n\nDie Herstellungsmethoden haben sich kaum verändert und trotz neuer technischer Möglichkeiten wird Schertlerbrot mit viel Sorgfalt und großteils noch von Hand hergestellt.",
-      "image": "https://www.schertlerbrot.at/wp-content/uploads/2018/09/Schertler_116-1030x687.jpg",
-      "website": "http://www.schertlerbrot.at/",
-      "phoneNumber": "+43 5572 310032",
-      "location": "Marktpl. 1, 6850 Dornbirn, Österreich",
-      "coordinates": "47.413536835740885, 9.742490869167032",
-      "email": "---",
-      "OpeningHours": {
-        "Monday": "07:30–13:00",
-        "Tuesday": "07:30–13:00",
-        "Wednesday": "07:30–13:00",
-        "Thursday": "07:30–13:00",
-        "Friday": "07:30–13:00",
-        "Saturday": "07:30–13:00",
-        "Sunday": "07:30–13:00"
-      },
-      "Tag" : ["vegetarian","take-out"]
-    },
-    {
       "id": "4",
       "name": "Bäckerei Luger",
       "type": "bakery",
