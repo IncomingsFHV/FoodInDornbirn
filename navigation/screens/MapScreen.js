@@ -24,8 +24,8 @@ const Stack = createStackNavigator();
 
 const MapContent = () => {
   return (
-    <Stack.Navigator initialRouteName={"Map"}>
-      <Stack.Screen options={{headerShown: false}} name="Map" component={MapScreen} />
+    <Stack.Navigator initialRouteName={"MapContent"}>
+      <Stack.Screen options={{headerShown: false}} name="MapContent" component={MapScreen} />
       <Stack.Screen
         name="DetailScreen"
         component={DetailScreen}

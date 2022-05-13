@@ -88,7 +88,7 @@ const HomeScreen = ({ navigation }) => {
             alignContent: "space-around",
             justifyContent: "center",
             alignItems: "center",
-            margin: 9,
+            margin: 6,
           }}
           onPress={() => onSelectCategory(item)}
           size={40}

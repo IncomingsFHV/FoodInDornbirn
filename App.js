@@ -9,7 +9,7 @@ import MapContent from "./navigation/screens/MapScreen";
 
 // Screen names
 const homeName = "Home";
-const mapName = "MapContent";
+const mapName = "Map";
 
 // Tab navigation is working for bottom tab navigation
 const Tab = createBottomTabNavigator();
